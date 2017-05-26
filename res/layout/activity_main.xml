@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+
+    <Button
+        android:id="@+id/id_main_test1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+    
+    
+    
+    <Button
+        android:id="@+id/id_main_test2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TestAddUserInfo" />
+    
+    <Button
+        android:id="@+id/id_main_test3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TESTValidateLoginName" />
+    
+    <Button
+        android:id="@+id/id_main_test4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TESTValidateLogin" />
+    
+    <Button
+        android:id="@+id/id_main_test5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TESTAddRentInfo" />
+    
+    <Button
+        android:id="@+id/id_main_test6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TESTAddRentInfoTest" />
+    
+    <Button
+        android:id="@+id/id_main_test7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TESTGetHouseInfoByLoginName" />
+    
+    <Button
+        android:id="@+id/id_main_test8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TESTGetHouseInfo" />
+    
+    <Button
+        android:id="@+id/id_main_test9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TESTGetRoadList" />
+    
+    
+    
+    <FrameLayout 
+       		android:id="@+id/id_selector_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="500px"
+    	/>
+
+</LinearLayout>
