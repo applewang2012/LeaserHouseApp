@@ -12,15 +12,13 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.view.animation.AnimationUtils;
-import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import landlord.guardts.house.present.HoursePresenter;
 import landlord.guardts.house.util.CommonUtil;
+import landlord.guardts.house.util.DialogUtil;
 
 public class LoginUserActivity extends BaseActivity{
 
@@ -36,8 +34,6 @@ public class LoginUserActivity extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.login_user); 
-		Log.e("mingguo", "width  "+getResources().getDisplayMetrics().widthPixels);
-		Log.e("mingguo", "height  "+getResources().getDisplayMetrics().heightPixels);
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 		mTitleBar = (TextView)findViewById(R.id.id_titlebar);
 		mTitleBar.setText("µÇÂ¼");
@@ -86,7 +82,7 @@ public class LoginUserActivity extends BaseActivity{
 					Toast.makeText(getApplicationContext(), "ÃÜÂë²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
 					return;
 				}
-				showLoadingView();
+				DialogUtil.showLoadingView(LoginUserActivity.this);
 				loginUser();
 			}
 		});
@@ -125,7 +121,7 @@ public class LoginUserActivity extends BaseActivity{
 			// TODO Auto-generated method stub
 			super.handleMessage(msg);
 			if (msg.what == 100){
-				dismissLoadingView();
+				DialogUtil.dismissLoadingView();
 				SharedPreferences sharedata = getApplicationContext().getSharedPreferences("user_info", 0);
 				SharedPreferences.Editor editor = sharedata.edit();
 			    editor.putString("user_name", mUserName);
@@ -138,7 +134,7 @@ public class LoginUserActivity extends BaseActivity{
 				startActivity(intent);
 				finish();
 			}else if (msg.what == 101){
-				dismissLoadingView();
+				DialogUtil.dismissLoadingView();
 				Toast.makeText(LoginUserActivity.this, "µÇÂ½Ê§°Ü", Toast.LENGTH_SHORT).show();
 			}
 			
@@ -146,22 +142,7 @@ public class LoginUserActivity extends BaseActivity{
 		
 	};
 	
-	private void showLoadingView(){
-		
-		if (mLoadingView != null) {
-			mLoadingView.setVisibility(View.VISIBLE);
-        	ImageView imageView = (ImageView) mLoadingView.findViewById(R.id.id_progressbar_img);
-        	if (imageView != null) {
-        		RotateAnimation rotate = (RotateAnimation) AnimationUtils.loadAnimation(this, R.anim.anim_rotate);
-        		imageView.startAnimation(rotate);
-        	}
-		}
-	}
-	private void dismissLoadingView(){
-		if (mLoadingView != null) {
-			mLoadingView.setVisibility(View.INVISIBLE);
-		}
-	}
+
 
 	 @Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
