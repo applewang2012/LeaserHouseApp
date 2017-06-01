@@ -120,7 +120,7 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 				floorTextView.setText(info.getHouseCurrentFloor()+"/"+info.getHouseTotalFloor()+" ²ã");
 				statusTextView.setText(info.getHouseStatus());
 				if (info.getHouseAvailable()){
-					statusTextView.setTextColor(Color.parseColor("#009966"));
+					statusTextView.setTextColor(Color.parseColor("#0b6cfe"));
 				}else{
 					
 				}

@@ -1,20 +1,5 @@
 package landlord.guardts.house.model;
 
-import javax.crypto.Mac;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
-
-import android.os.AsyncTask;
-import android.util.Log;
-import landlord.guardts.house.present.HoursePresenter;
-import landlord.guardts.house.util.CommonUtil;
-
 public class HouseSelectorModel {
 
 

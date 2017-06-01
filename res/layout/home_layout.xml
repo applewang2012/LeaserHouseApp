@@ -2,17 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ccffffff"
+    android:background="#ffffff"
     android:orientation="vertical"
-    android:paddingLeft="2dp"
-    android:paddingRight="2dp"
+    android:paddingLeft="1dp"
+    android:paddingRight="1dp"
      >
      
     <FrameLayout
 		android:id="@+id/id_home_content"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent" 
-		android:paddingBottom="85dp"
+		android:paddingBottom="60dp"
 		android:persistentDrawingCache="animation"
 		/>
     <LinearLayout
@@ -20,7 +20,7 @@
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
            android:layout_gravity="bottom"
-           android:background="#21000000"
+           android:background="#f1f5fc"
            android:orientation="horizontal"
            >
            <LinearLayout 
@@ -33,23 +33,26 @@
 	           android:gravity="center_horizontal"
                >
                <ImageView
-                   android:layout_width="60dp"
-	           	   android:layout_height="60dp"
-	           	   android:background="@drawable/chuzu"
+                   android:id="@+id/id_home_button_house_icon"
+                   android:layout_width="38dp"
+	           	   android:layout_height="38dp"
+	           	   android:layout_marginTop="3dp"
+	           	   android:background="@drawable/chuzu_icon"
 	           	   
                    />
                <TextView 
+                   android:id="@+id/id_home_button_house_text"
                    android:layout_width="match_parent"
 	           	   android:layout_height="wrap_content"
-	           	   android:textColor="#000000"
-	           	   android:textSize="15dp"
+	           	   android:textColor="#0b6cfe"
+	           	   android:textSize="12dp"
 	           	   android:text="出租屋"
 	           	   android:gravity="center_horizontal"
                    />
            </LinearLayout>
            <ImageView 
 	        	    android:layout_width="1dp"
-		        	android:layout_height="60dp"
+		        	android:layout_height="30dp"
 		        	android:background="#3f000000"
 		        	android:layout_gravity="center_vertical"
 	        	     />
@@ -61,18 +64,20 @@
 	           android:orientation="vertical"
 	           android:clickable="true"
 	           android:gravity="center_horizontal"
-	           android:alpha="0.5"
                >
                <ImageView
-                   android:layout_width="60dp"
-	           	   android:layout_height="60dp"
-	           	   android:background="@drawable/headd"
+                   android:id="@+id/id_home_button_my_icon"
+                   android:layout_width="38dp"
+	           	   android:layout_height="38dp"
+	           	   android:layout_marginTop="3dp"
+	           	   android:background="@drawable/my_icon_default"
                    />
                <TextView 
+                   android:id="@+id/id_home_button_my_text"
                    android:layout_width="match_parent"
 	           	   android:layout_height="wrap_content"
-	           	   android:textColor="#000000"
-	           	   android:textSize="15sp"
+	           	   android:textColor="#afaeae"
+	           	   android:textSize="14dp"
 	           	   android:text="我的"
 	           	   android:gravity="center_horizontal"
                    />

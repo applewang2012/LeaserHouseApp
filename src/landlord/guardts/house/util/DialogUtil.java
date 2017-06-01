@@ -1,8 +1,6 @@
 package landlord.guardts.house.util;
 
 import android.app.Activity;
-import android.app.DialogFragment;
-import landlord.guardts.house.LoginUserActivity;
 import landlord.guardts.house.R;
 import landlord.guardts.house.widget.DialogFragmentLoadingView;
 

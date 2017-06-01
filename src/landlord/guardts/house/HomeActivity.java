@@ -2,6 +2,7 @@ package landlord.guardts.house;
 
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,14 +58,20 @@ public class HomeActivity extends BaseActivity{
 		
 		final LinearLayout houseLayout = (LinearLayout)findViewById(R.id.id_home_button_house);
 		final LinearLayout myLayout = (LinearLayout)findViewById(R.id.id_home_button_my);
-		
+		final ImageView houseIcon = (ImageView)findViewById(R.id.id_home_button_house_icon);
+		final ImageView myIcon = (ImageView)findViewById(R.id.id_home_button_my_icon);
+		final TextView houseText = (TextView)findViewById(R.id.id_home_button_house_text);
+		final TextView myText = (TextView)findViewById(R.id.id_home_button_my_text);
 		houseLayout.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				mTitleBar.setText("³ö×âÎÝ");
-				myLayout.setAlpha((float) 0.5);
-				houseLayout.setAlpha((float) 1.0);
+				
+				houseIcon.setBackgroundResource(R.drawable.chuzu_icon);
+				houseText.setTextColor(Color.parseColor("#0b6cfe"));
+				myIcon.setBackgroundResource(R.drawable.my_icon_default);
+				myText.setTextColor(Color.parseColor("#afaeae"));
 				FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 				hideAllFragments(fragmentTransaction);
 				if (mHouseFrament == null){
@@ -81,8 +89,10 @@ public class HomeActivity extends BaseActivity{
 			@Override
 			public void onClick(View v) {
 				mTitleBar.setText("ÎÒµÄ");
-				myLayout.setAlpha((float) 1.0);
-				houseLayout.setAlpha((float) 0.5);
+				houseIcon.setBackgroundResource(R.drawable.chuzu_icon_default);
+				houseText.setTextColor(Color.parseColor("#afaeae"));
+				myIcon.setBackgroundResource(R.drawable.my_icon);
+				myText.setTextColor(Color.parseColor("#0b6cfe"));
 				FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 				hideAllFragments(fragmentTransaction);
 				if (mMyFragment == null){

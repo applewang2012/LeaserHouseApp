@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ccffffff"
+    android:background="#ffffff"
     android:orientation="vertical"
     android:paddingLeft="2dp"
     android:paddingRight="2dp"
@@ -15,26 +15,24 @@
         	 android:layout_height="fill_parent"
         	 android:orientation="vertical">
         	 <ImageView 
-        	     android:layout_width="match_parent"
-	        	 android:layout_height="200dp"
-	        	 android:background="@drawable/house_logo"
+        	     android:layout_width="320dp"
+	        	 android:layout_height="130dp"
+	        	 android:layout_marginTop="10dp"
+	        	 android:layout_gravity="center_horizontal"
+	        	 android:background="@drawable/view_banner"
         	     />
              <LinearLayout 
 		        android:layout_width="match_parent"
-		        android:layout_height="200dp"
-		        android:layout_marginLeft="2dp"
-		        android:layout_marginRight="2dp"
-		        android:background="#e5ffffff"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="20dp"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="30dp"
 		        android:orientation="vertical"
 	        	>
 	        	<LinearLayout 
 	        	    android:layout_width="match_parent"
-		        	android:layout_height="0dp"
-		        	android:layout_weight="1"
+		        	android:layout_height="60dp"
 		        	android:orientation="horizontal"
-		        	android:layout_marginTop="5dp"
-		        	android:layout_marginLeft="10dp"
-		        	android:layout_marginRight="10dp"
 		        	android:gravity="center_vertical"
 	        	    >
 	        	    <TextView 
@@ -42,19 +40,19 @@
 		        		android:layout_height="match_parent"
 		        		android:layout_weight="1"
 		        		android:text="产权编号"
-		        		android:textSize="18sp"
-		        		android:gravity="center_vertical"
-		        		android:textColor="#000000"
+		        		android:textColor="#666666"
+			    		android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	    <TextView 
 	        	        android:id="@+id/id_rent_house_number"
 	        	         android:layout_width="0dp"
 		        		 android:layout_height="match_parent"
 		        		 android:layout_weight="3"
-		        		 android:gravity="center_vertical"
 		        		 android:maxLength="20"
-		        		 android:textSize="19sp"
-		        		 android:textColor="#8c000000"
+		        		 android:textColor="#666666"
+			    		 android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	   </LinearLayout>
 	        	<ImageView 
@@ -64,12 +62,8 @@
 	        	     />
 	        	<LinearLayout 
 	        	    android:layout_width="match_parent"
-		        	android:layout_height="0dp"
-		        	android:layout_weight="1"
+		        	android:layout_height="60dp"
 		        	android:orientation="horizontal"
-		        	android:layout_marginTop="5dp"
-		        	android:layout_marginLeft="10dp"
-		        	android:layout_marginRight="10dp"
 		        	android:gravity="center_vertical"
 	        	    >
 	        	    <TextView 
@@ -77,18 +71,20 @@
 		        		android:layout_height="match_parent"
 		        		android:layout_weight="1"
 		        		android:text="姓	名"
-		        		android:textSize="18sp"
-		        		android:gravity="center_vertical"
-		        		android:textColor="#000000"
+		        		android:textColor="#666666"
+			    		android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	    <EditText 
 	        	        android:id="@+id/id_rent_house_name"
 	        	         android:layout_width="0dp"
-		        		 android:layout_height="match_parent"
+		        		 android:layout_height="35dp"
 		        		 android:layout_weight="3"
 		        		 android:hint="请输入承租人姓名"
-		        		 android:gravity="center_vertical"
-		        		 android:textColor="#8c000000"
+		        		 android:paddingLeft="5dp"
+		        		 android:textSize="14dp"
+		        		 android:background="@drawable/item_shape_focus_no_corner"
+		        		 android:textColor="#afaeae"
 	        	        />
 	        	    </LinearLayout>
 	        	    <ImageView 
@@ -98,12 +94,8 @@
 	        	     />
 	        	<LinearLayout 
 	        	    android:layout_width="match_parent"
-		        	android:layout_height="0dp"
-		        	android:layout_weight="1"
+		        	android:layout_height="60dp"
 		        	android:orientation="horizontal"
-		        	android:layout_marginTop="5dp"
-		        	android:layout_marginLeft="10dp"
-		        	android:layout_marginRight="10dp"
 		        	android:gravity="center_vertical"
 	        	    >
 	        	    <TextView 
@@ -111,20 +103,22 @@
 		        		android:layout_height="match_parent"
 		        		android:layout_weight="1"
 		        		android:text="手	机"
-		        		android:textSize="18sp"
-		        		android:gravity="center_vertical"
-		        		android:textColor="#000000"
+		        		android:textColor="#666666"
+			    		android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	    <EditText 
 	        	        android:id="@+id/id_rent_house_phone"
 	        	         android:layout_width="0dp"
-		        		 android:layout_height="match_parent"
+		        		 android:layout_height="35dp"
 		        		 android:layout_weight="3"
 		        		 android:hint="请输入承租人手机号码"
 		        		 android:maxLength="11"
 		        		 android:inputType="number"
-		        		 android:gravity="center_vertical"
-		        		 android:textColor="#8c000000"
+		        		 android:paddingLeft="5dp"
+		        		 android:textSize="14dp"
+		        		 android:background="@drawable/item_shape_focus_no_corner"
+		        		 android:textColor="#afaeae"
 	        	        />
 	        	    </LinearLayout>
 	        	<ImageView 
@@ -134,12 +128,8 @@
 	        	     />
 	        	<LinearLayout 
 	        	    android:layout_width="match_parent"
-		        	android:layout_height="0dp"
-		        	android:layout_weight="1"
+		        	android:layout_height="60dp"
 		        	android:orientation="horizontal"
-		        	android:layout_marginTop="5dp"
-		        	android:layout_marginLeft="10dp"
-		        	android:layout_marginRight="10dp"
 		        	android:gravity="center_vertical"
 	        	    >
 	        	    <TextView 
@@ -147,43 +137,33 @@
 		        		android:layout_height="match_parent"
 		        		android:layout_weight="1"
 		        		android:text="身份证"
-		        		android:textSize="18sp"
-		        		android:gravity="center_vertical"
-		        		android:textColor="#000000"
+		        		android:textColor="#666666"
+			    		android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	    <EditText 
 	        	        android:id="@+id/id_rent_house_idcard"
 	        	         android:layout_width="0dp"
-		        		 android:layout_height="match_parent"
+		        		 android:layout_height="35dp"
 		        		 android:layout_weight="3"
 		        		 android:hint="请输入承租人身份证号码"
 		        		 android:maxLength="18"
-		        		 android:gravity="center_vertical"
-		        		 android:textColor="#8c000000"
+		        		 android:paddingLeft="5dp"
+		        		 android:textSize="14dp"
+		        		 android:background="@drawable/item_shape_focus_no_corner"
+		        		 android:textColor="#afaeae"
 	        	        />
 	        	    </LinearLayout>
-	        	
-	        	
-	        	
-	         </LinearLayout>
-             
-	         <LinearLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="250dp"
-		        android:layout_marginTop="15dp"
-		        android:layout_marginLeft="2dp"
-		        android:layout_marginRight="2dp"
-		        android:background="#e5ffffff"
-		        android:orientation="vertical"
-	        	>
+	        	<ImageView 
+	        	     android:layout_width="match_parent"
+		        	 android:layout_height="1dp"
+		        	 android:background="#0c000000"
+	        	     />
+	        
 	        	<LinearLayout 
 	        	    android:layout_width="match_parent"
-		        	android:layout_height="0dp"
-		        	android:layout_weight="1"
+		        	android:layout_height="60dp"
 		        	android:orientation="horizontal"
-		        	android:layout_marginTop="5dp"
-		        	android:layout_marginLeft="10dp"
-		        	android:layout_marginRight="10dp"
 		        	android:gravity="center_vertical"
 	        	    >
 	        	    <TextView 
@@ -191,20 +171,23 @@
 		        		android:layout_height="match_parent"
 		        		android:layout_weight="1"
 		        		android:text="价	格"
-		        		android:textSize="18sp"
-		        		android:gravity="center_vertical"
-		        		android:textColor="#000000"
+		        		android:textColor="#666666"
+			    		android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	    <EditText 
 	        	        android:id="@+id/id_rent_house_price"
 	        	         android:layout_width="0dp"
-		        		 android:layout_height="match_parent"
+		        		 android:layout_height="35dp"
 		        		 android:layout_weight="3"
 		        		 android:hint="请输入房屋出租价格"
 		        		 android:gravity="center_vertical"
 		        		 android:inputType="number"
 		        		 android:maxLength="8"
-		        		 android:textColor="#8c000000"
+		        		 android:paddingLeft="5dp"
+		        		 android:textSize="14dp"
+		        		 android:background="@drawable/item_shape_focus_no_corner"
+		        		 android:textColor="#afaeae"
 	        	        />
 	        	</LinearLayout>
 	        	<ImageView 
@@ -214,12 +197,8 @@
 	        	     />
 	        	<LinearLayout 
 	        	    android:layout_width="match_parent"
-		        	android:layout_height="0dp"
-		        	android:layout_weight="1"
+		        	android:layout_height="60dp"
 		        	android:orientation="horizontal"
-		        	android:layout_marginTop="5dp"
-		        	android:layout_marginLeft="10dp"
-		        	android:layout_marginRight="10dp"
 		        	android:gravity="center_vertical"
 	        	    >
 	        	    <TextView 
@@ -227,19 +206,22 @@
 		        		android:layout_height="match_parent"
 		        		android:layout_weight="1"
 		        		android:text="说	明"
-		        		android:textSize="18sp"
-		        		android:gravity="center_vertical"
-		        		android:textColor="#000000"
+		        		android:textColor="#666666"
+			    		android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	    <EditText 
 	        	        android:id="@+id/id_rent_house_read_me"
 	        	         android:layout_width="0dp"
-		        		 android:layout_height="match_parent"
+		        		 android:layout_height="35dp"
 		        		 android:layout_weight="3"
 		        		 android:hint="请输入备注信息"
 		        		 android:gravity="center_vertical"
 		        		 android:maxLength="50"
-		        		 android:textColor="#8c000000"
+		        		 android:paddingLeft="5dp"
+		        		 android:textSize="14dp"
+		        		 android:background="@drawable/item_shape_focus_no_corner"
+		        		 android:textColor="#afaeae"
 	        	        />
 	        	</LinearLayout>
 	        	<ImageView 
@@ -250,11 +232,7 @@
 	        	<FrameLayout 
 	        	    android:id="@+id/id_rent_house_start_date"
 	        	    android:layout_width="match_parent"
-		        	android:layout_height="0dp"
-		        	android:layout_weight="1"
-		        	android:layout_marginTop="5dp"
-		        	android:layout_marginLeft="10dp"
-		        	android:layout_marginRight="10dp"
+		        	android:layout_height="60dp"
 		        	android:orientation="horizontal"
 		        	android:gravity="center_vertical"
 		        	android:clickable="true"
@@ -266,15 +244,16 @@
 		        		android:layout_height="match_parent"
 		        		android:layout_weight="2"
 		        		android:text="开始日期"
-		        		android:textSize="18sp"
-		        		android:gravity="center_vertical"
-		        		android:textColor="#000000"
+		        		android:textColor="#666666"
+			    		android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	    <ImageView 
-	        	        android:layout_width="20dp"
-		        		android:layout_height="20dp"
+	        	        android:layout_width="8dp"
+		        		android:layout_height="12dp"
+		        		android:layout_marginRight="10dp"
 		        		android:background="@drawable/into_icon"
-		        		android:layout_gravity="right"
+		        		android:layout_gravity="right|center_vertical"
 	        	        />
 	        	</FrameLayout>
 	        	<ImageView 
@@ -285,11 +264,7 @@
 	        	<FrameLayout 
 	        	    android:id="@+id/id_rent_house_end_date"
 	        	    android:layout_width="match_parent"
-		        	android:layout_height="0dp"
-		        	android:layout_weight="1"
-		        	android:layout_marginTop="5dp"
-		        	android:layout_marginLeft="10dp"
-		        	android:layout_marginRight="10dp"
+		        	android:layout_height="60dp"
 		        	android:orientation="horizontal"
 		        	android:gravity="center_vertical"
 		        	android:clickable="true"
@@ -301,25 +276,27 @@
 		        		android:layout_height="match_parent"
 		        		android:layout_weight="2"
 		        		android:text="结束日期"
-		        		android:textSize="18sp"
-		        		android:gravity="center_vertical"
-		        		android:textColor="#000000"
+		        		android:textColor="#666666"
+			    		android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	    <ImageView 
-	        	        android:layout_width="20dp"
-		        		android:layout_height="20dp"
+	        	        android:layout_width="8dp"
+		        		android:layout_height="12dp"
+		        		android:layout_marginRight="10dp"
 		        		android:background="@drawable/into_icon"
-		        		android:layout_gravity="right"
+		        		android:layout_gravity="right|center_vertical"
 	        	        />
 	        	</FrameLayout>
+	        	<ImageView 
+	        	     android:layout_width="match_parent"
+		        	 android:layout_height="1dp"
+		        	 android:background="#0c000000"
+	        	     />
 	        	<FrameLayout 
 	        	    android:id="@+id/id_rent_house_type"
 	        	    android:layout_width="match_parent"
-		        	android:layout_height="0dp"
-		        	android:layout_weight="1"
-		        	android:layout_marginTop="5dp"
-		        	android:layout_marginLeft="10dp"
-		        	android:layout_marginRight="10dp"
+		        	android:layout_height="60dp"
 		        	android:orientation="horizontal"
 		        	android:gravity="center_vertical"
 	        	    >
@@ -329,29 +306,35 @@
 		        		android:layout_height="match_parent"
 		        		android:layout_weight="2"
 		        		android:text="房屋类型"
-		        		android:textSize="18sp"
-		        		android:gravity="center_vertical"
-		        		android:textColor="#000000"
+		        		android:textColor="#666666"
+			    		android:textSize="15dp"
+			    		android:gravity="left|center_vertical"
 	        	        />
 	        	    <ImageView 
-	        	        android:layout_width="20dp"
-		        		android:layout_height="20dp"
+	        	        android:layout_width="8dp"
+		        		android:layout_height="12dp"
+		        		android:layout_marginRight="10dp"
 		        		android:background="@drawable/into_icon"
-		        		android:layout_gravity="right"
+		        		android:layout_gravity="right|center_vertical"
 	        	        />
 	        	</FrameLayout>
+	        	<ImageView 
+	        	     android:layout_width="match_parent"
+		        	 android:layout_height="1dp"
+		        	 android:background="#0c000000"
+	        	     />
 	         </LinearLayout>
              <Button 
                  android:id="@+id/id_add_rent_confirm"
                  android:layout_width="match_parent"
-		         android:layout_height="50dp"
-		         android:layout_marginLeft="10dp"
-		         android:layout_marginRight="10dp"
+		         android:layout_height="45dp"
+		         android:layout_marginLeft="30dp"
+		         android:layout_marginRight="30dp"
 		         android:layout_marginTop="30dp"
 		         android:layout_marginBottom="20dp"
 		         android:text="确		定"
 		         android:textColor="#ffffff"
-		         android:textSize="21sp"
+		         android:textSize="18dp"
 		         android:gravity="center"
 		         android:background="@drawable/button_background"
                  />

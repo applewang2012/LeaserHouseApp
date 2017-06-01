@@ -1,7 +1,5 @@
 package landlord.guardts.house.model;
 
-import android.location.Address;
-
 public class UserInfoModel {
 
 	private String loginName;

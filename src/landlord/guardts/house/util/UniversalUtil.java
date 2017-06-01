@@ -2,6 +2,12 @@ package landlord.guardts.house.util;
 
 import java.util.Hashtable;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -16,12 +22,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.Log;
 import android.widget.ImageView;
-
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
 
 /**
  * util for url convert to qrcode, use google zxing jar

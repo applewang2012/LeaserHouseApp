@@ -183,7 +183,7 @@ public class AddRentAttributeActivity extends BaseActivity{
 		
 		FrameLayout startTime = (FrameLayout)findViewById(R.id.id_rent_house_start_date);
 		mStartTime = (TextView)findViewById(R.id.id_rent_house_start_date_text);
-		mOriginStartContent = (String) mStartTime.getText();
+		mOriginStartContent = (String) mStartTime.getText()+"   ";
 		startTime.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -194,7 +194,7 @@ public class AddRentAttributeActivity extends BaseActivity{
 		
 		FrameLayout endTime = (FrameLayout)findViewById(R.id.id_rent_house_end_date);
 		mEndTime = (TextView)findViewById(R.id.id_rent_house_end_date_text);
-		mOriginEndContent = (String) mEndTime.getText();
+		mOriginEndContent = (String) mEndTime.getText()+"   ";
 		endTime.setOnClickListener(new OnClickListener() {
 			
 			@Override

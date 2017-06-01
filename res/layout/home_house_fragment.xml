@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:textColor="#ffffff"
     android:orientation="vertical"
      >
 	<LinearLayout 
@@ -11,9 +12,11 @@
    		android:orientation="vertical"
 	    >
 	    <ImageView 
-	        android:layout_width="match_parent"
-	        android:layout_height="200dp"
-	        android:background="@drawable/house_logo"
+        	android:layout_width="320dp"
+	        android:layout_height="130dp"
+	        android:layout_marginTop="10dp"
+	        android:layout_gravity="center_horizontal"
+	        android:background="@drawable/rent_house_bander"
 	        />
 	    <ListView 
 	        android:id="@+id/id_fragment_house_listview" 
@@ -21,7 +24,9 @@
 		    android:layout_height="match_parent"
 		    android:cacheColorHint="#00000000"
 		    android:fadingEdge="none"
-		    android:divider="#e5ffffff"
+		    android:divider="#afaeae"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp"
 		    android:dividerHeight="1dp"
 	    />
 	</LinearLayout>

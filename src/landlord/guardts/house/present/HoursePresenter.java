@@ -5,7 +5,6 @@ import java.util.HashMap;
 import org.ksoap2.serialization.SoapObject;
 
 import android.content.Context;
-import android.util.Log;
 import landlord.guardts.house.model.DataModel;
 import landlord.guardts.house.model.DataStatusInterface;
 
