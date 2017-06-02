@@ -71,7 +71,7 @@ public class AddRentAttributeActivity extends BaseActivity{
 		
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 		mTitleBar = (TextView)findViewById(R.id.id_titlebar);
-		mTitleBar.setText("·¿Îİ×âÁŞĞÅÏ¢");
+		mTitleBar.setText("æˆ¿å±‹ç§Ÿèµä¿¡æ¯");
 		
 		initView();
 		
@@ -168,8 +168,8 @@ public class AddRentAttributeActivity extends BaseActivity{
 		mLoadingView.setVisibility(View.INVISIBLE);
 		mQrcodeView = (View)findViewById(R.id.id_qrcode_layout);
 		mQrcodeView.setVisibility(View.INVISIBLE);
-		mOwnerType[0] = "ÈÕ×â·¿";
-		mOwnerType[1] = "ÔÂ×â·¿";
+		mOwnerType[0] = "æ—¥ç§Ÿæˆ¿";
+		mOwnerType[1] = "æœˆç§Ÿæˆ¿";
 		FrameLayout typeFrameLayout = (FrameLayout)findViewById(R.id.id_rent_house_type);
 		mTypeTextView = (TextView)findViewById(R.id.id_rent_house_type_text);
 		mOriginTypeText = mTypeTextView.getText().toString();
@@ -183,7 +183,7 @@ public class AddRentAttributeActivity extends BaseActivity{
 		
 		FrameLayout startTime = (FrameLayout)findViewById(R.id.id_rent_house_start_date);
 		mStartTime = (TextView)findViewById(R.id.id_rent_house_start_date_text);
-		mOriginStartContent = (String) mStartTime.getText()+"   ";
+		mOriginStartContent = (String) mStartTime.getText()+"  ";
 		startTime.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -194,7 +194,7 @@ public class AddRentAttributeActivity extends BaseActivity{
 		
 		FrameLayout endTime = (FrameLayout)findViewById(R.id.id_rent_house_end_date);
 		mEndTime = (TextView)findViewById(R.id.id_rent_house_end_date_text);
-		mOriginEndContent = (String) mEndTime.getText()+"   ";
+		mOriginEndContent = (String) mEndTime.getText()+"  ";
 		endTime.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -224,36 +224,36 @@ public class AddRentAttributeActivity extends BaseActivity{
 	private boolean checkInputContent(){
 		
 		if (mHouseId.getText().toString() == null || mHouseId.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë²úÈ¨±àºÅ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥äº§æƒç¼–å·", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if (mRentIDcard.getText().toString() == null || mRentIDcard.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈëÉí·İÖ¤ĞÅÏ¢", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥èº«ä»½è¯ä¿¡æ¯", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if (mRentName.getText().toString() == null || mRentName.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈëĞÕÃû", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥å§“å", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if (mRentPhone.getText().toString() == null || mRentPhone.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈëÊÖ»úºÅÂë", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æ‰‹æœºå·ç ", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if (mRentReadMe.getText().toString() == null || mRentReadMe.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë±¸×¢ĞÅÏ¢", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥å¤‡æ³¨ä¿¡æ¯", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if (mRentPrice.getText().toString() == null || mRentPrice.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë×â½ğ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥ç§Ÿé‡‘", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		
 		if (mSetStartData == null || mSetStartData.equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë×â·¿¿ªÊ¼Ê±¼ä", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥ç§Ÿæˆ¿å¼€å§‹æ—¶é—´", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if (mSetEndData == null || mSetEndData.equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë×â·¿½áÊøÊ±¼ä", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥ç§Ÿæˆ¿ç»“æŸæ—¶é—´", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		
@@ -329,11 +329,11 @@ public class AddRentAttributeActivity extends BaseActivity{
 				dismissLoadingView();
 				String value = (String)msg.obj;
 				if (value != null && value.equals("true")){
-					//Toast.makeText(getApplicationContext(), "Ìí¼Ó³É¹¦", Toast.LENGTH_SHORT).show();
+					//Toast.makeText(getApplicationContext(), "æ·»åŠ æˆåŠŸ", Toast.LENGTH_SHORT).show();
 					showLoadingView();
 					startHttpService();
 				}else{
-					Toast.makeText(getApplicationContext(), "Ìí¼Ó×âÁŞĞÅÏ¢Ê§°Ü", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æ·»åŠ ç§Ÿèµä¿¡æ¯å¤±è´¥", Toast.LENGTH_SHORT).show();
 				}
 			}else if (msg.what == 101){
 				dismissLoadingView();

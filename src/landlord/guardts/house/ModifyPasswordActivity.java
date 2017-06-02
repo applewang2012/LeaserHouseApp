@@ -36,7 +36,7 @@ public class ModifyPasswordActivity extends BaseActivity{
 		
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 		mTitleBar = (TextView)findViewById(R.id.id_titlebar);
-		mTitleBar.setText("修改密码");
+		mTitleBar.setText("锟睫革拷锟斤拷锟斤拷");
 		
 		
 		initView();
@@ -60,23 +60,23 @@ public class ModifyPasswordActivity extends BaseActivity{
 				mNewPassword = newpassword.getEditableText().toString();
 				mNewPasswordConfirm = newpasswordConfirm.getEditableText().toString();
 				if (mUserName == null || mUserName.equals("")){
-					Toast.makeText(getApplicationContext(), "用户名不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getString(R.string.user_name_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mOldPassword == null || mOldPassword.equals("")){
-					Toast.makeText(getApplicationContext(), "原密码不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getString(R.string.old_pwd_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mNewPassword == null || mNewPassword.equals("")){
-					Toast.makeText(getApplicationContext(), "新密码不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getString(R.string.new_pwd_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mNewPasswordConfirm == null || mNewPasswordConfirm.equals("")){
-					Toast.makeText(getApplicationContext(), "确认密码不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getString(R.string.new_again_pwd_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (!mNewPassword.equals(mNewPasswordConfirm)){
-					Toast.makeText(getApplicationContext(), "两次输入新密码不一致", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getString(R.string.twice_pwd_not_same), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				showLoadingView();
@@ -108,11 +108,11 @@ public class ModifyPasswordActivity extends BaseActivity{
 				SharedPreferences.Editor editor = sharedata.edit();
 			    editor.putString("user_password", mNewPassword);
 			    editor.commit();
-				Toast.makeText(ModifyPasswordActivity.this, "密码修改成功", Toast.LENGTH_SHORT).show();
+				Toast.makeText(ModifyPasswordActivity.this, getString(R.string.modify_pwd_success), Toast.LENGTH_SHORT).show();
 				finish();
 			}else if (msg.what == 101){
 				dismissLoadingView();
-				Toast.makeText(ModifyPasswordActivity.this, "密码修改失败", Toast.LENGTH_SHORT).show();
+				Toast.makeText(ModifyPasswordActivity.this, getString(R.string.modify_pwd_failed), Toast.LENGTH_SHORT).show();
 			}
 			
 		}

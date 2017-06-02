@@ -1,6 +1,13 @@
 package landlord.guardts.house;
 
+import java.util.HashMap;
+
+import org.kobjects.rss.RssReader;
+import org.ksoap2.serialization.SoapObject;
+
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,14 +23,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import landlord.guardts.house.present.HoursePresenter;
+import landlord.guardts.house.util.CommonUtil;
+import landlord.guardts.house.util.JsonObjectParse;
+import landlord.guardts.house.util.UniversalUtil;
 import landlord.guardts.house.view.HouseFragment;
 import landlord.guardts.house.view.MyFragment;
 
-public class HomeActivity extends BaseActivity{
+public class HomeActivity extends BaseActivity {
 
 	private TextView mTitleBar;
 	private HoursePresenter mPresenter;
-	private String mLoginAction = "http://tempuri.org/ValidateLogin";
+	//private String mLoginAction = "http://tempuri.org/ValidateLogin";
+	private String mUpdateAction="http://tempuri.org/CheckUpdate";
 	private String mUserName, mPassword;
 	private HouseFragment mHouseFrament;
 	private MyFragment mMyFragment;
@@ -37,11 +48,23 @@ public class HomeActivity extends BaseActivity{
 		
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 		mTitleBar = (TextView)findViewById(R.id.id_titlebar);
-		mTitleBar.setText("³ö×âÎÝ");
+		mTitleBar.setText(getResources().getString(R.string.home_tab_house));
 		
 		mUserName = getIntent().getStringExtra("user_name");
 		mPassword = getIntent().getStringExtra("user_password");
 		initView();
+		checkVersionUpdate();
+	}
+	
+	private void checkVersionUpdate(){
+		String url = "http://byw2863630001.my3w.com/SystemUpgradeService.asmx?op=CheckUpdate";
+		SoapObject rpc = new SoapObject(CommonUtil.NAMESPACE, CommonUtil.getSoapName(mUpdateAction));
+		rpc.addProperty("appId", "2");
+		mPresenter.readyPresentServiceParams(getApplicationContext(), url, mUpdateAction, rpc);
+		mPresenter.startPresentServiceTask();
+		//{"Result":"1","AppId":"2","Versioncode":"2","IsEnforced":"1","APKUrl":"UpgradeFolder//LeaserHouseApp.apk","IOSUrl":"","MSG":"Success"}
+		//{"Result":"0","AppId":"2","MSG":"ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ã´ï¿½Webï¿½ï¿½ï¿½ï¿½"}
+		//resultï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   appidï¿½ï¿½1Ó¡ï¿½Â£ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	private void initView(){
@@ -66,7 +89,7 @@ public class HomeActivity extends BaseActivity{
 			
 			@Override
 			public void onClick(View v) {
-				mTitleBar.setText("³ö×âÎÝ");
+				mTitleBar.setText(getString(R.string.home_tab_house));
 				
 				houseIcon.setBackgroundResource(R.drawable.chuzu_icon);
 				houseText.setTextColor(Color.parseColor("#0b6cfe"));
@@ -88,7 +111,7 @@ public class HomeActivity extends BaseActivity{
 		myLayout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				mTitleBar.setText("ÎÒµÄ");
+				mTitleBar.setText(getString(R.string.home_tab_my));
 				houseIcon.setBackgroundResource(R.drawable.chuzu_icon_default);
 				houseText.setTextColor(Color.parseColor("#afaeae"));
 				myIcon.setBackgroundResource(R.drawable.my_icon);
@@ -116,11 +139,11 @@ public class HomeActivity extends BaseActivity{
 //				mUserName = userName.getEditableText().toString();
 //				mPassword = password.getEditableText().toString();
 //				if (mUserName == null || mUserName.equals("")){
-//					Toast.makeText(getApplicationContext(), "ÓÃ»§Ãû²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
+//					Toast.makeText(getApplicationContext(), "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½", Toast.LENGTH_SHORT).show();
 //					return;
 //				}
 //				if (mPassword == null || mPassword.equals("")){
-//					Toast.makeText(getApplicationContext(), "ÃÜÂë²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
+//					Toast.makeText(getApplicationContext(), "ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Îªï¿½ï¿½", Toast.LENGTH_SHORT).show();
 //					return;
 //				}
 //				showLoadingView();
@@ -172,42 +195,44 @@ public class HomeActivity extends BaseActivity{
 		public void handleMessage(Message msg) {
 			// TODO Auto-generated method stub
 			super.handleMessage(msg);
-//			if (msg.what == 100){
-//				dismissLoadingView();
-//				Toast.makeText(HomeActivity.this, "µÇÂ¼³É¹¦", Toast.LENGTH_SHORT).show();
-//				
-//			}else if (msg.what == 101){
-//				dismissLoadingView();
-//				Toast.makeText(HomeActivity.this, "µÇÂ½Ê§°Ü", Toast.LENGTH_SHORT).show();
-//			}
+			if (msg.what == 100){
+				showCheckUpdateVersionDialog();
+				
+			}else if (msg.what == 101){
+				
+				Toast.makeText(HomeActivity.this, "", Toast.LENGTH_SHORT).show();
+			}
 			
 		}
 		
 	};
 	
-//	private void showLoadingView(){
-//		
-//		if (mLoadingView != null) {
-//			mLoadingView.setVisibility(View.VISIBLE);
-//        	ImageView imageView = (ImageView) mLoadingView.findViewById(R.id.id_progressbar_img);
-//        	if (imageView != null) {
-//        		RotateAnimation rotate = (RotateAnimation) AnimationUtils.loadAnimation(this, R.anim.anim_rotate);
-//        		imageView.startAnimation(rotate);
-//        	}
-//		}
-//	}
-//	private void dismissLoadingView(){
-//		if (mLoadingView != null) {
-//			mLoadingView.setVisibility(View.INVISIBLE);
-//		}
-//	}
+	private void showCheckUpdateVersionDialog(){
+		AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this).setTitle(getString(R.string.check_app_version))//
+		  
+	     .setMessage(getString(R.string.check_version_click_download))
+	  
+	     .setPositiveButton(getString(R.string.button_ok),new DialogInterface.OnClickListener() {  
+	         @Override  
+	  
+	         public void onClick(DialogInterface dialog, int which) {
+	        	 startActivity(new Intent(HomeActivity.this, DownloadAppActivity.class));
+	        	 finish();
+	         }  
+	  
+	     });
+		
+        builder.setCancelable(false);
+		builder.show();
+	}
+	
 	 private long exitTime;
 	 @Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 			// TODO Auto-generated method stub
 			if (keyCode == KeyEvent.KEYCODE_BACK) {
 					if ((System.currentTimeMillis() - exitTime) > 2000) {
-						Toast.makeText(getApplicationContext(), "ÔÙ°´Ò»´ÎÍË³ö³ÌÐò", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), getString(R.string.press_again_to_exit), Toast.LENGTH_SHORT).show();
 			            exitTime = System.currentTimeMillis();
 			        } else {
 			            finish();
@@ -229,12 +254,28 @@ public class HomeActivity extends BaseActivity{
 	public void onStatusSuccess(String action, String templateInfo) {
 		Log.i("mingguo", "on success  action "+action+"  msg  "+templateInfo);
 		if (action != null && templateInfo != null){
-			if (action.equals(mLoginAction)){
-				if (templateInfo.equals("false")){
-					mHandler.sendEmptyMessage(101);
-				}else if (templateInfo.equals("true")){
-					mHandler.sendEmptyMessage(100);
+			if (action.equals(mUpdateAction)){
+				HashMap<String, String> updateInfo = (HashMap<String, String>) JsonObjectParse.parseVersionUpdateInfo(templateInfo);
+				if (updateInfo != null && updateInfo.size() > 0){
+					//{"Result":"1","AppId":"2","Versioncode":"2","IsEnforced":"1","APKUrl":"UpgradeFolder//LeaserHouseApp.apk","IOSUrl":"","MSG":"Success"} 
+					if (updateInfo.containsKey("Result")&&updateInfo.containsKey("IsEnforced")&&updateInfo.containsKey("APKUrl")){
+						String result = updateInfo.get("Result");
+						String enforce = updateInfo.get("IsEnforced");
+						String versionCode = updateInfo.get("Versioncode");
+						if ("1".equals(result)&&"1".equals(enforce)){
+							int updateCode = Integer.parseInt(versionCode);
+							int currentCode = UniversalUtil.getAppVersionCode(HomeActivity.this);
+							Log.i("mingguo", "update  "+updateCode+"  current  "+currentCode);
+							if (updateCode > currentCode){
+								Message message = mHandler.obtainMessage();
+								message.what = 100;
+								message.obj = updateInfo.get("APKUrl");
+								mHandler.sendMessage(message);
+							}
+						}
+					}
 				}
+				
 			}
 		}
 		

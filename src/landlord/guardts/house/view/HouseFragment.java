@@ -37,7 +37,7 @@ import landlord.guardts.house.util.CommonUtil;
 import landlord.guardts.house.util.JsonObjectParse;
 import landlord.guardts.house.widget.UniversalAdapter;
 import landlord.guardts.house.widget.UniversalViewHolder;
-//Ìí¼Ó°üÊ±Ìí¼Óimport android.support.v4.app.Fragment; 
+//ï¿½ï¿½Ó°ï¿½Ê±ï¿½ï¿½ï¿½import android.support.v4.app.Fragment; 
 public class HouseFragment extends Fragment implements DataStatusInterface, OnItemClickListener, OnItemLongClickListener{
 	
 
@@ -117,7 +117,7 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 				addressTextView.setText(info.getHouseAddress());
 				typeTextView.setText(info.getHouseType());
 				directionTextView.setText(info.getHouseDirection());
-				floorTextView.setText(info.getHouseCurrentFloor()+"/"+info.getHouseTotalFloor()+" ²ã");
+				floorTextView.setText(info.getHouseCurrentFloor()+"/"+info.getHouseTotalFloor()+getString(R.string.house_floor));
 				statusTextView.setText(info.getHouseStatus());
 				if (info.getHouseAvailable()){
 					statusTextView.setTextColor(Color.parseColor("#0b6cfe"));
@@ -129,14 +129,14 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 	}
 	
 	private void showPublicAttributeDialog(final int position){
-		new AlertDialog.Builder(getActivity()).setTitle("×âÁÞ·¿ÎÝ")//ÉèÖÃ¶Ô»°¿ò±êÌâ  
+		new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.arribute_house))//ï¿½ï¿½ï¿½Ã¶Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 		  
-	     .setMessage("ÄúÈ·¶¨Òª½«¸Ã·¿ÎÝ½øÐÐ×âÁÞÂð£¿")//ÉèÖÃÏÔÊ¾µÄÄÚÈÝ  
+	     .setMessage(getString(R.string.arribute_house_whether))//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	  
-	     .setPositiveButton("È·¶¨",new DialogInterface.OnClickListener() {//Ìí¼ÓÈ·¶¨°´Å¥  
+	     .setPositiveButton(getString(R.string.button_ok),new DialogInterface.OnClickListener() {//ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Å¥  
 	         @Override  
 	  
-	         public void onClick(DialogInterface dialog, int which) {//È·¶¨°´Å¥µÄÏìÓ¦ÊÂ¼þ  
+	         public void onClick(DialogInterface dialog, int which) {//È·ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Â¼ï¿½  
 	        	 Intent intent = new Intent(mContext, AddRentAttributeActivity.class);
 	        	 intent.putExtra("house_id", mHouseInfoList.get(position).getHouseId());
 	        	 intent.putExtra("user_name", mUserName);
@@ -146,40 +146,40 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 	        	 //startActivity(intent);
 	         }  
 	  
-	     }).setNegativeButton("È¡Ïû",new DialogInterface.OnClickListener() {//Ìí¼Ó·µ»Ø°´Å¥  
+	     }).setNegativeButton(getString(R.string.button_cancel),new DialogInterface.OnClickListener() {//ï¿½ï¿½Ó·ï¿½ï¿½Ø°ï¿½Å¥  
 	  
 	         @Override  
 	  
-	         public void onClick(DialogInterface dialog, int which) {//ÏìÓ¦ÊÂ¼þ  
+	         public void onClick(DialogInterface dialog, int which) {//ï¿½ï¿½Ó¦ï¿½Â¼ï¿½  
 	  
 	             // TODO Auto-generated method stub  
 	  
-	             Log.i("alertdialog"," Çë±£´æÊý¾Ý£¡");  
+	             Log.i("alertdialog"," ï¿½ë±£ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½");  
 	  
 	         }  
 	  
-	     }).show();//ÔÚ°´¼üÏìÓ¦ÊÂ¼þÖÐÏÔÊ¾´Ë¶Ô»°¿ò  
+	     }).show(); 
 	}
 	
 	private void showDeleteHouseInfoDialog(final int position){
-		new AlertDialog.Builder(getActivity()).setTitle("É¾³ý·¿ÎÝ")//ÉèÖÃ¶Ô»°¿ò±êÌâ  
+		new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.delete_house))//ï¿½ï¿½ï¿½Ã¶Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 		  
-	     .setMessage("ÄúÈ·¶¨ÒªÉ¾³ý¸Ã·¿ÎÝÐÅÏ¢Âð£¿")//ÉèÖÃÏÔÊ¾µÄÄÚÈÝ  
+	     .setMessage(getString(R.string.arribute_house_whether))//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	  
-	     .setPositiveButton("È·¶¨",new DialogInterface.OnClickListener() {//Ìí¼ÓÈ·¶¨°´Å¥  
+	     .setPositiveButton(getString(R.string.button_ok),new DialogInterface.OnClickListener() {//ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Å¥  
 	         @Override  
 	  
-	         public void onClick(DialogInterface dialog, int which) {//È·¶¨°´Å¥µÄÏìÓ¦ÊÂ¼þ  
+	         public void onClick(DialogInterface dialog, int which) {//È·ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Â¼ï¿½  
 	        	 showLoadingView();
 	        	 deleteHouseInfo(mHouseInfoList.get(position).getHouseId());
 	         }  
 	  
-	     }).setNegativeButton("È¡Ïû",new DialogInterface.OnClickListener() {//Ìí¼Ó·µ»Ø°´Å¥  
+	     }).setNegativeButton(getString(R.string.button_cancel),new DialogInterface.OnClickListener() {//ï¿½ï¿½Ó·ï¿½ï¿½Ø°ï¿½Å¥  
 	         @Override  
-	         public void onClick(DialogInterface dialog, int which) {//ÏìÓ¦ÊÂ¼þ  
-	             Log.i("alertdialog"," Çë±£´æÊý¾Ý£¡");  
+	         public void onClick(DialogInterface dialog, int which) {//ï¿½ï¿½Ó¦ï¿½Â¼ï¿½  
+	             Log.i("alertdialog"," ï¿½ë±£ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½");  
 	         }  
-	     }).show();//ÔÚ°´¼üÏìÓ¦ÊÂ¼þÖÐÏÔÊ¾´Ë¶Ô»°¿ò  
+	     }).show();//ï¿½Ú°ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ë¶Ô»ï¿½ï¿½ï¿½  
 	}
 	
 	private void getHouseInfo(){
@@ -224,7 +224,7 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 					Log.w("housefragment", "delete house   "+mHouseInfoList.size());
 					mAdapter.notifyDataSetChanged();
 				}else{
-					Toast.makeText(mContext, "É¾³ý·¿ÎÝÊ§°Ü", Toast.LENGTH_SHORT).show();
+					Toast.makeText(mContext, getString(R.string.delete_house_failed), Toast.LENGTH_SHORT).show();
 				}
 			}
 		}
@@ -300,7 +300,7 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		Log.e("housefragment", "item click position    "+position+"  list  "+mHouseInfoList.get(position).getHouseAvailable());
 		if (mHouseInfoList.get(position).getHouseAvailable()){
-			Toast.makeText(mContext, "¸Ã·¿ÎÝÒÑ³ö×â", Toast.LENGTH_SHORT).show();
+			Toast.makeText(mContext, getString(R.string.house_already_rented), Toast.LENGTH_SHORT).show();
 		}else{
 			showPublicAttributeDialog(position);
 		}
@@ -313,7 +313,7 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 			int position, long id) {
 		Log.e("housefragment", "item long click position    "+position+"  list  "+mHouseInfoList.get(position).getHouseAvailable());
 		if (mHouseInfoList.get(position).getHouseAvailable()){
-			Toast.makeText(mContext, "¸Ã·¿ÎÝÒÑ³ö×â, ÎÞ·¨É¾³ý", Toast.LENGTH_SHORT).show();
+			Toast.makeText(mContext, getString(R.string.house_already_rented_not_delete), Toast.LENGTH_SHORT).show();
 		}else{
 			
 			showDeleteHouseInfoDialog(position);

@@ -1,6 +1,7 @@
 package landlord.guardts.house.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -313,6 +314,30 @@ public class JsonObjectParse {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return model;
+		}
+	}
+	
+	public static HashMap<String, String> parseVersionUpdateInfo(String back) {
+		try{
+			JSONObject object = new JSONObject(back);
+			HashMap<String, String> value = null;
+			if (object != null){
+				value = new HashMap<>();
+					String result = object.optString("Result");
+					String version = object.optString("Versioncode");
+					String url = object.optString("APKUrl");
+					String msg = object.optString("MSG");
+					String enforce = object.optString("IsEnforced");
+					value.put("Result", result);
+					value.put("Versioncode", version);
+					value.put("MSG", msg);
+					value.put("APKUrl", url);
+					value.put("IsEnforced", enforce);
+			}
+			return value;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 	

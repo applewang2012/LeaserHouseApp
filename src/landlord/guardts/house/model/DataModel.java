@@ -42,6 +42,8 @@ import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
+import org.kxml2.kdom.Element;
+import org.kxml2.kdom.Node;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -103,8 +105,23 @@ public class DataModel {
 		@Override
 		protected Void doInBackground(Void... params) {
 			try {
+				 Element[] header = new Element[1]; 
+	                header[0] = new Element().createElement(CommonUtil.NAMESPACE, "MySoapHeader"); 
+	                
+	                Element userName = new Element().createElement(CommonUtil.NAMESPACE, "UserID"); 
+	                userName.addChild(Node.TEXT, "admin"); 
+	                header[0].addChild(Node.ELEMENT, userName); 
+	                
+	                Element pass = new Element().createElement(CommonUtil.NAMESPACE, "PassWord"); 
+	                pass.addChild(Node.TEXT, "Pa$$w0rd780419"); 
+	                header[0].addChild(Node.ELEMENT, pass); 
+	                
+//	                header[0].setAttribute(CommonUtil.NAMESPACE, "UserID", "admin");
+//	                header[0].setAttribute(CommonUtil.NAMESPACE, "PassWord", "Pa$$w0rd780419");
+	                
 				Log.e("house", "services  async taks  do inbackground ");
 				SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+				envelope.headerOut = header; 
 				envelope.bodyOut = mSoapObject;
 				envelope.dotNet= true;
 				envelope.setOutputSoapObject(mSoapObject);

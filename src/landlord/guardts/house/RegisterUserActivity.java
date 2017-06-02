@@ -40,7 +40,7 @@ public class RegisterUserActivity extends BaseActivity{
 		
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 		mTitleBar = (TextView)findViewById(R.id.id_titlebar);
-		mTitleBar.setText("注册");
+		mTitleBar.setText("注锟斤拷");
 		
 		initView();
 		
@@ -93,31 +93,31 @@ public class RegisterUserActivity extends BaseActivity{
 				mEmail = email.getEditableText().toString();
 				Log.i("mingguo", "user name  "+mUserName);
 				if (mUserName == null || mUserName.equals("")){
-					Toast.makeText(RegisterUserActivity.this, "用户名不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(RegisterUserActivity.this, getString(R.string.user_name_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mPassword == null || mPassword.equals("")){
-					Toast.makeText(RegisterUserActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(RegisterUserActivity.this, getString(R.string.pwd_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mRealName == null || mRealName.equals("")){
-					Toast.makeText(RegisterUserActivity.this, "姓名不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(RegisterUserActivity.this, getString(R.string.surface_name_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mIdCard == null || mIdCard.equals("")){
-					Toast.makeText(RegisterUserActivity.this, "身份证号不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(RegisterUserActivity.this, getString(R.string.id_card_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mPhone == null || mPhone.equals("")){
-					Toast.makeText(RegisterUserActivity.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(RegisterUserActivity.this, getString(R.string.phone_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mNickName == null || mNickName.equals("")){
-					Toast.makeText(RegisterUserActivity.this, "昵称不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(RegisterUserActivity.this, getString(R.string.nickname_not_null), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (!mUsernameValid){
-					Toast.makeText(RegisterUserActivity.this, "该用户名已被注册", Toast.LENGTH_SHORT).show();
+					Toast.makeText(RegisterUserActivity.this, getString(R.string.username_register_again), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				showLoadingView();
@@ -142,14 +142,14 @@ public class RegisterUserActivity extends BaseActivity{
 		rpc.addProperty("userType", "1");
 		rpc.addProperty("realName", mRealName);
 		rpc.addProperty("title", mPosition);
-		rpc.addProperty("sex", "男");
+		rpc.addProperty("sex", "锟斤拷");
 		rpc.addProperty("phone", mPhone);
-		rpc.addProperty("fax", "无");
+		rpc.addProperty("fax", "锟斤拷");
 		rpc.addProperty("email", mEmail);
 		rpc.addProperty("idcard", mIdCard);
 		rpc.addProperty("nickName", mNickName);
 		rpc.addProperty("address", mAddress);
-		rpc.addProperty("status", "0"); //0正常，1监视中
+		rpc.addProperty("status", "0"); //0锟斤拷锟斤拷锟斤拷1锟斤拷锟斤拷锟斤拷
 		mPresenter.readyPresentServiceParams(getApplicationContext(), url, mRegisterAction, rpc);
 		mPresenter.startPresentServiceTask();
 	}
@@ -161,7 +161,7 @@ public class RegisterUserActivity extends BaseActivity{
 			// TODO Auto-generated method stub
 			super.handleMessage(msg);
 			if (msg.what == 100){
-				Toast.makeText(RegisterUserActivity.this, "该用户名已被注册", Toast.LENGTH_SHORT).show();
+				Toast.makeText(RegisterUserActivity.this, getString(R.string.username_register_again), Toast.LENGTH_SHORT).show();
 			}else if (msg.what == 101){
 				dismissLoadingView();
 				SharedPreferences sharedata = getApplicationContext().getSharedPreferences("user_info", 0);
@@ -169,7 +169,7 @@ public class RegisterUserActivity extends BaseActivity{
 			    editor.putString("user_name", mUserName);
 			    editor.putString("user_password", mPassword);
 			    editor.commit();
-				Toast.makeText(RegisterUserActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+				Toast.makeText(RegisterUserActivity.this, getString(R.string.register_success), Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(RegisterUserActivity.this, HomeActivity.class);
 				intent.putExtra("user_name", mUserName);
 				intent.putExtra("user_password", mPassword);

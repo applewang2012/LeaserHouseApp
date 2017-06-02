@@ -31,7 +31,7 @@ import landlord.guardts.house.model.UserInfoModel;
 import landlord.guardts.house.present.HoursePresenter;
 import landlord.guardts.house.util.CommonUtil;
 import landlord.guardts.house.util.JsonObjectParse;
-//Ìí¼Ó°üÊ±Ìí¼Óimport android.support.v4.app.Fragment; 
+//ï¿½ï¿½Ó°ï¿½Ê±ï¿½ï¿½ï¿½import android.support.v4.app.Fragment; 
 public class MyFragment extends Fragment implements DataStatusInterface{
 	
 
@@ -114,7 +114,7 @@ public class MyFragment extends Fragment implements DataStatusInterface{
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(mContext, "ÇëÔÚ¡°³ö×âÎÝ¡±ÁÐ±íÖÐ³¤°´½øÐÐÉ¾³ý", Toast.LENGTH_SHORT).show();
+				Toast.makeText(mContext, getString(R.string.long_press_to_delete), Toast.LENGTH_SHORT).show();
 				
 			}
 		});
@@ -169,11 +169,11 @@ public class MyFragment extends Fragment implements DataStatusInterface{
 	};
 	
 	private void showPublicAttributeDialog(final int position){
-		new AlertDialog.Builder(getActivity()).setTitle("ÍË³öµÇÂ¼") 
+		new AlertDialog.Builder(getActivity()).setTitle("ï¿½Ë³ï¿½ï¿½ï¿½Â¼") 
 		  
-	     .setMessage("ÄúÈ·¶¨ÒªÍË³öµÇÂ¼Âð£¿")//ÉèÖÃÏÔÊ¾µÄÄÚÈÝ  
+	     .setMessage("ï¿½ï¿½È·ï¿½ï¿½Òªï¿½Ë³ï¿½ï¿½ï¿½Â¼ï¿½ï¿½")//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	  
-	     .setPositiveButton("È·¶¨",new DialogInterface.OnClickListener() {
+	     .setPositiveButton("È·ï¿½ï¿½",new DialogInterface.OnClickListener() {
 	         @Override  
 	  
 	         public void onClick(DialogInterface dialog, int which) {
@@ -187,15 +187,15 @@ public class MyFragment extends Fragment implements DataStatusInterface{
 	        	 
 	         }  
 	  
-	     }).setNegativeButton("È¡Ïû",new DialogInterface.OnClickListener() {//Ìí¼Ó·µ»Ø°´Å¥  
+	     }).setNegativeButton("È¡ï¿½ï¿½",new DialogInterface.OnClickListener() {//ï¿½ï¿½Ó·ï¿½ï¿½Ø°ï¿½Å¥  
 	  
 	         @Override  
 	  
-	         public void onClick(DialogInterface dialog, int which) {//ÏìÓ¦ÊÂ¼þ  
-	             Log.i("alertdialog"," Çë±£´æÊý¾Ý£¡");  
+	         public void onClick(DialogInterface dialog, int which) {//ï¿½ï¿½Ó¦ï¿½Â¼ï¿½  
+	             Log.i("alertdialog"," ï¿½ë±£ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½");  
 	         }  
 	  
-	     }).show();//ÔÚ°´¼üÏìÓ¦ÊÂ¼þÖÐÏÔÊ¾´Ë¶Ô»°¿ò  
+	     }).show();//ï¿½Ú°ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ë¶Ô»ï¿½ï¿½ï¿½  
 	}
 
 	@Override

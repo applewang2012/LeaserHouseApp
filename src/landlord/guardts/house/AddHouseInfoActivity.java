@@ -98,7 +98,7 @@ public class AddHouseInfoActivity extends BaseActivity{
 		
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 		mTitleBar = (TextView)findViewById(R.id.id_titlebar);
-		mTitleBar.setText("·¿ÎİĞÅÏ¢");
+		mTitleBar.setText("æˆ¿å±‹ä¿¡æ¯");
 		
 		initView();
 	}
@@ -195,7 +195,7 @@ public class AddHouseInfoActivity extends BaseActivity{
 				if (mSelectorInfo.get("district") != null && mSelectorInfo.get("district").getHouseSelectId() != null){
 					getHouseStreet();
 				}else{
-					Toast.makeText(getApplicationContext(), "ÇëÏÈÑ¡ÔñÇøÓò", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "è¯·å…ˆé€‰æ‹©åŒºåŸŸ", Toast.LENGTH_SHORT).show();
 				}
 				
 			}
@@ -210,7 +210,7 @@ public class AddHouseInfoActivity extends BaseActivity{
 				if (mSelectorInfo.get("street") != null && mSelectorInfo.get("street").getHouseSelectId() != null){
 					getHouseRoad();
 				}else{
-					Toast.makeText(getApplicationContext(), "ÇëÏÈÑ¡Ôñ½ÖµÀ", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "è¯·å…ˆé€‰æ‹©è¡—é“", Toast.LENGTH_SHORT).show();
 				}
 				
 			}
@@ -235,7 +235,7 @@ public class AddHouseInfoActivity extends BaseActivity{
 				if (mSelectorInfo.get("fenju") != null && mSelectorInfo.get("fenju").getHouseSelectId() != null){
 					getHousePolice();	
 				}else{
-					Toast.makeText(getApplicationContext(), "ÇëÏÈÑ¡Ôñ·Ö¾Ö", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "è¯·å…ˆé€‰æ‹©åˆ†å±€", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
@@ -276,7 +276,7 @@ public class AddHouseInfoActivity extends BaseActivity{
 			@Override
 			public void onClick(View v) {
 				if (!mValidHouseId){
-					Toast.makeText(getApplicationContext(), "·¿²úÖ¤±àºÅÊäÈëÓĞÎó", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æˆ¿äº§è¯ç¼–å·è¾“å…¥æœ‰è¯¯", Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (checkInputContent()){
@@ -289,84 +289,84 @@ public class AddHouseInfoActivity extends BaseActivity{
 	private boolean checkInputContent(){
 		
 		if (mSelectorInfo.get("property") == null || mSelectorInfo.get("property").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡Ôñ·¿²úĞÔÖÊ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©æˆ¿äº§æ€§è´¨", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRProperty = mSelectorInfo.get("property").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("type") == null || mSelectorInfo.get("type").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡Ôñ·¿ĞÍ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©æˆ¿å‹", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRRoomType = mSelectorInfo.get("type").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("direction") == null || mSelectorInfo.get("direction").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡Ôñ³¯Ïò", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©æœå‘", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRDirection = mSelectorInfo.get("direction").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("structure") == null || mSelectorInfo.get("structure").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡Ôñ½á¹¹", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©ç»“æ„", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRStructure = mSelectorInfo.get("structure").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("buildingstructure") == null || mSelectorInfo.get("buildingstructure").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡Ôñ½¨Öş½á¹¹", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©å»ºç­‘ç»“æ„", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRBuildingType = mSelectorInfo.get("buildingstructure").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("district") == null || mSelectorInfo.get("district").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡ÔñÇøÓò", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©åŒºåŸŸ", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRDName = mSelectorInfo.get("district").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("street") == null || mSelectorInfo.get("street").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡Ôñ½ÖµÀ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©è¡—é“", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRSName = mSelectorInfo.get("street").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("police") == null || mSelectorInfo.get("police").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡ÔñÅÉ³öËù", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©æ´¾å‡ºæ‰€", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRPSName = mSelectorInfo.get("police").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("road") == null || mSelectorInfo.get("road").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡ÔñµÀÂ·", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©é“è·¯", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRRName = mSelectorInfo.get("road").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("fenju") == null || mSelectorInfo.get("fenju").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡Ôñ·Ö¾Ö", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©åˆ†å±€", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRPSParentName = mSelectorInfo.get("fenju").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("renttype") == null || mSelectorInfo.get("renttype").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡Ôñ×âÁŞÀàĞÍ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©ç§Ÿèµç±»å‹", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mrentType = mSelectorInfo.get("renttype").getHouseSelectId();
 		}
 		
 		if (mSelectorInfo.get("ownertype") == null || mSelectorInfo.get("ownertype").getHouseSelectId() == null){
-			Toast.makeText(getApplicationContext(), "ÇëÑ¡Ôñ·¿ÎİÀàĞÍ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©æˆ¿å±‹ç±»å‹", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mownType = mSelectorInfo.get("ownertype").getHouseSelectId();
@@ -374,77 +374,77 @@ public class AddHouseInfoActivity extends BaseActivity{
 		
 		EditText age = (EditText)findViewById(R.id.id_add_house_age);
 		if (age.getText().toString() == null || age.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë·¿Áä", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æˆ¿é¾„", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRHouseAge = age.getText().toString();
 		}
 		EditText area = (EditText)findViewById(R.id.id_add_house_area);
 		if (area.getText().toString() == null || area.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë·¿ÎİÃæ»ı", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æˆ¿å±‹é¢ç§¯", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRRentArea = area.getText().toString();
 		}
 		EditText total_floor = (EditText)findViewById(R.id.id_add_house_total_floor);
 		if (total_floor.getText().toString() == null || total_floor.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë×ÜÂ¥²ã", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æ€»æ¥¼å±‚", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRTotalFloor = total_floor.getText().toString();
 		}
 		EditText current_floor = (EditText)findViewById(R.id.id_add_house_current_floor);
 		if (current_floor.getText().toString() == null || current_floor.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈëËùÔÚÂ¥²ã", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æ‰€åœ¨æ¥¼å±‚", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{ 
 			mRFloor = current_floor.getText().toString();
 		}
 		EditText total_num = (EditText)findViewById(R.id.id_add_house_total_num);
 		if (total_num.getText().toString() == null || total_num.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈëÃ¿²ã»§Êı", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æ¯å±‚æˆ·æ•°", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRTotalDoor = total_num.getText().toString();
 		}
 		EditText current_num = (EditText)findViewById(R.id.id_add_house_current_num);
 		if (current_num.getText().toString() == null || current_num.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈëÃÅÅÆºÅ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥é—¨ç‰Œå·", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRDoor = current_num.getText().toString();
 		}
 		EditText address = (EditText)findViewById(R.id.id_add_house_address);
 		if (address.getText().toString() == null || address.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈëÏêÏ¸µØÖ·", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥è¯¦ç»†åœ°å€", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRAddress = address.getText().toString();
 		}
 		
 		if (mHouseNo.getText().toString() == null || mHouseNo.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë·¿²úÖ¤±àºÅ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æˆ¿äº§è¯ç¼–å·", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRentNo = mHouseNo.getText().toString();
 		}
 		EditText owner_name = (EditText)findViewById(R.id.id_add_house_owner_name);
 		if (owner_name.getText().toString() == null || owner_name.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë·¿Ö÷ĞÕÃû", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æˆ¿ä¸»å§“å", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mROwner = owner_name.getText().toString();
 		}
 		EditText phone = (EditText)findViewById(R.id.id_add_house_owner_phone);
 		if (phone.getText().toString() == null || phone.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë·¿Ö÷ÊÖ»ú", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æˆ¿ä¸»æ‰‹æœº", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mROwnerTel = phone.getText().toString();
 		}
 		EditText owner_id = (EditText)findViewById(R.id.id_add_house_owner_id_card);
 		if (owner_id.getText().toString() == null || owner_id.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "ÇëÊäÈë·¿Ö÷Éí·İÖ¤ºÅÂë", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æˆ¿ä¸»èº«ä»½è¯å·ç ", Toast.LENGTH_SHORT).show();
 			return false;
 		}else{
 			mRIDCard = owner_id.getText().toString();
@@ -455,7 +455,7 @@ public class AddHouseInfoActivity extends BaseActivity{
 		
 //		
 //		if (mSelectorInfo.get("property") == null || mSelectorInfo.get("property").getHouseSelectId() == null){
-//			Toast.makeText(getApplicationContext(), "ÇëÏÈÑ¡ÔñÇøÓò", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(getApplicationContext(), "è¯·å…ˆé€‰æ‹©åŒºåŸŸ", Toast.LENGTH_SHORT).show();
 //		}
 		
 	}
@@ -482,7 +482,7 @@ public class AddHouseInfoActivity extends BaseActivity{
 			showAlertDialog(mPropertryTextView, "property", mSelectorInfo.get("property").getHouseAllContent());
 		}
 		
-		//[{"RSOUrl":"0","IsVisible":null,"RSOName":"Ë½²ú","RSOParentNo":8,"RSOID":15,"RSONo":0,"RSOOrder":1},{"RSOUrl":"0","IsVisible":null,"RSOName":"¹«²ú","RSOParentNo":8,"RSOID":16,"RSONo":0,"RSOOrder":2}]
+		//[{"RSOUrl":"0","IsVisible":null,"RSOName":"ç§äº§","RSOParentNo":8,"RSOID":15,"RSONo":0,"RSOOrder":1},{"RSOUrl":"0","IsVisible":null,"RSOName":"å…¬äº§","RSOParentNo":8,"RSOID":16,"RSONo":0,"RSOOrder":2}]
 	}
 	
 	private void getHouseType(){
@@ -798,10 +798,10 @@ public class AddHouseInfoActivity extends BaseActivity{
 				String value = (String)msg.obj;
 				if (value != null && value.equals("true")){
 					Log.e("mingguo", "add rent info success ");
-					Toast.makeText(getApplicationContext(), "Ìí¼Ó×â·¿ĞÅÏ¢³É¹¦", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æ·»åŠ ç§Ÿæˆ¿ä¿¡æ¯æˆåŠŸ", Toast.LENGTH_SHORT).show();
 					finish();
 				}else{
-					Toast.makeText(getApplicationContext(), "Ìí¼Ó×â·¿ĞÅÏ¢Ê§°Ü", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æ·»åŠ ç§Ÿæˆ¿ä¿¡æ¯å¤±è´¥", Toast.LENGTH_SHORT).show();
 				}
 			}else if (msg.what == 112){
 				String value = (String)msg.obj;
@@ -809,7 +809,7 @@ public class AddHouseInfoActivity extends BaseActivity{
 					mValidHouseId = true;
 				}else{
 					mValidHouseId = false;
-					Toast.makeText(getApplicationContext(), "·¿²úÖ¤±àºÅÊäÈëÓĞÎó", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æˆ¿äº§è¯ç¼–å·è¾“å…¥æœ‰è¯¯", Toast.LENGTH_SHORT).show();
 				}
 			}
 		}

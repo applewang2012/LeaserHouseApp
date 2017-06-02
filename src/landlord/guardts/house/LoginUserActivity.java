@@ -36,7 +36,7 @@ public class LoginUserActivity extends BaseActivity{
 		setContentView(R.layout.login_user); 
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 		mTitleBar = (TextView)findViewById(R.id.id_titlebar);
-		mTitleBar.setText("登录");
+		mTitleBar.setText("鐧诲綍");
 		initView();
 	}
 	
@@ -75,11 +75,11 @@ public class LoginUserActivity extends BaseActivity{
 				mUserName = userNameEditText.getEditableText().toString();
 				mPassword = passwordEditText.getEditableText().toString();
 				if (mUserName == null || mUserName.equals("")){
-					Toast.makeText(getApplicationContext(), "用户名不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getString(R.string.please_input_username), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mPassword == null || mPassword.equals("")){
-					Toast.makeText(getApplicationContext(), "密码不能为空", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getString(R.string.please_input_username), Toast.LENGTH_SHORT).show();
 					return;
 				}
 				DialogUtil.showLoadingView(LoginUserActivity.this);
@@ -127,7 +127,7 @@ public class LoginUserActivity extends BaseActivity{
 			    editor.putString("user_name", mUserName);
 			    editor.putString("user_password", mPassword);
 			    editor.commit();
-				Toast.makeText(LoginUserActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+				Toast.makeText(LoginUserActivity.this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(LoginUserActivity.this, HomeActivity.class);
 				intent.putExtra("user_name", mUserName);
 				intent.putExtra("user_password", mPassword);
@@ -135,7 +135,7 @@ public class LoginUserActivity extends BaseActivity{
 				finish();
 			}else if (msg.what == 101){
 				DialogUtil.dismissLoadingView();
-				Toast.makeText(LoginUserActivity.this, "登陆失败", Toast.LENGTH_SHORT).show();
+				Toast.makeText(LoginUserActivity.this, getString(R.string.login_failed), Toast.LENGTH_SHORT).show();
 			}
 			
 		}
