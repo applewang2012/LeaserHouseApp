@@ -98,7 +98,7 @@ public class MyFragment extends Fragment implements DataStatusInterface{
 			
 			@Override
 			public void onClick(View v) {
-				showPublicAttributeDialog(0);
+				logoutUserDialog(0);
 			}
 		});
 		mPublishHouse.setOnClickListener(new OnClickListener() {
@@ -168,12 +168,12 @@ public class MyFragment extends Fragment implements DataStatusInterface{
 		}
 	};
 	
-	private void showPublicAttributeDialog(final int position){
-		new AlertDialog.Builder(getActivity()).setTitle("�˳���¼") 
+	private void logoutUserDialog(final int position){
+		new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.user_logout)) 
 		  
-	     .setMessage("��ȷ��Ҫ�˳���¼��")//������ʾ������  
+	     .setMessage(getString(R.string.user_logout_remind))//������ʾ������  
 	  
-	     .setPositiveButton("ȷ��",new DialogInterface.OnClickListener() {
+	     .setPositiveButton(getString(R.string.button_ok),new DialogInterface.OnClickListener() {
 	         @Override  
 	  
 	         public void onClick(DialogInterface dialog, int which) {
@@ -187,7 +187,7 @@ public class MyFragment extends Fragment implements DataStatusInterface{
 	        	 
 	         }  
 	  
-	     }).setNegativeButton("ȡ��",new DialogInterface.OnClickListener() {//��ӷ��ذ�ť  
+	     }).setNegativeButton(getString(R.string.button_cancel),new DialogInterface.OnClickListener() {//��ӷ��ذ�ť  
 	  
 	         @Override  
 	  

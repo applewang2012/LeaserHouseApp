@@ -1,6 +1,8 @@
 package landlord.guardts.house.util;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Hashtable;
 
 import com.google.zxing.BarcodeFormat;
@@ -15,6 +17,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -163,6 +166,43 @@ public static int playPosition=-1;
         }
        return path;
     }
+    
+    public static String getDownloadPath(){
+    	if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            // ���ڻ�ȡ�ⲿ�ļ�·��
+            File root = Environment.getExternalStorageDirectory();
+            File base = new File(root.getPath() + "/download");
+        	if (!base.isDirectory() && !base.mkdir()) {
+        		return null;
+        	}
+        	return base.getPath();
+    	}
+    	return null;
+    }
+    
+    public static boolean checkDownloadFileExist(String image){
+		if (image == null){
+			return false;
+		}
+		
+		String filePath = UniversalUtil.getDownloadPath()+image.substring(image.lastIndexOf("/"));
+		if (new File(filePath).exists()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+    
+    public static Bitmap getLoacalBitmap(String url) {
+        try {
+             FileInputStream fis = new FileInputStream(url);
+             return BitmapFactory.decodeStream(fis);  ///把流转化为Bitmap图片        
+
+          } catch (FileNotFoundException e) {
+             e.printStackTrace();
+             return null;
+        }
+   }
     
     
     /* ��װapk */    

@@ -40,7 +40,7 @@ public class RegisterUserActivity extends BaseActivity{
 		
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 		mTitleBar = (TextView)findViewById(R.id.id_titlebar);
-		mTitleBar.setText("ע��");
+		mTitleBar.setText(getString(R.string.register_user));
 		
 		initView();
 		

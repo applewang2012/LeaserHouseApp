@@ -341,4 +341,42 @@ public class JsonObjectParse {
 		}
 	}
 	
+	public static HashMap<String, String> parseAdvertismentInfo(String back) {
+		try{
+			JSONObject object = new JSONObject(back);
+			HashMap<String, String> value = null;
+			if (object != null){
+				value = new HashMap<>();
+					String result = object.optString("Result");
+					String isEnforced = object.optString("IsEnforced");
+					String type = object.optString("Type");
+					String subType = object.optString("SubType"); //SubType
+					String video = object.optString("VideoUrl");
+					String videoUrl = object.optString("VideoTargetUrl");
+					String image1 = object.optString("ImageUrl1");
+					String image2 = object.optString("ImageUrl2");
+					String image3 = object.optString("ImageUrl3");
+					String imageUrl1 = object.optString("ImageTargetUrl1");
+					String imageUrl2 = object.optString("ImageTargetUrl2");
+					String imageUrl3 = object.optString("ImageTargetUrl3");
+					value.put("Result", result);
+					value.put("IsEnforced", isEnforced);
+					value.put("Type", type);
+					value.put("SubType", subType);
+					value.put("VideoUrl", video);
+					value.put("VideoTargetUrl", videoUrl);
+					value.put("ImageUrl1", image1);
+					value.put("ImageUrl2", image2);
+					value.put("ImageUrl3", image3);
+					value.put("ImageTargetUrl1", imageUrl1);
+					value.put("ImageTargetUrl2", imageUrl2);
+					value.put("ImageTargetUrl3", imageUrl3);
+			}
+			return value;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }

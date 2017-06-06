@@ -36,7 +36,7 @@ public class ModifyPasswordActivity extends BaseActivity{
 		
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 		mTitleBar = (TextView)findViewById(R.id.id_titlebar);
-		mTitleBar.setText("�޸�����");
+		mTitleBar.setText(getString(R.string.modify_password));
 		
 		
 		initView();
