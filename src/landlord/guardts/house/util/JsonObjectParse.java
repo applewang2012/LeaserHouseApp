@@ -317,6 +317,8 @@ public class JsonObjectParse {
 		}
 	}
 	
+	
+	
 	public static HashMap<String, String> parseVersionUpdateInfo(String back) {
 		try{
 			JSONObject object = new JSONObject(back);

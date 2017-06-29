@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.ksoap2.serialization.SoapObject;
 
@@ -43,6 +44,7 @@ public class AddRentAttributeActivity extends BaseActivity{
 	private View mLoadingView;
 	private HoursePresenter mPresenter;
 	private String mAddRentAction = "http://tempuri.org/AddRentRecord";
+	private String mQueryStatusAction = "http://tempuri.org/IsOrderConfirmed";
 	private String mIdentifyUrl = "https://nid.sdtt.com.cn/AppRegSvr/thirdsysauthsvr/houseorder";
 	private String mAppIDString = "0000004";
 	private String mRandNum = null;
@@ -62,6 +64,7 @@ public class AddRentAttributeActivity extends BaseActivity{
 	private String mOriginTypeText, mTypeIndex = null;
 	private String mOwnerName;
 	private String mOwnerIdcard;
+	private String mOrderId;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -215,7 +218,9 @@ public class AddRentAttributeActivity extends BaseActivity{
 			@Override
 			public void onClick(View v) {
 				if (checkInputContent()){
+					showLoadingView();
 					startAddRentInfo();
+					//startHttpService();
 				}
 			}
 		});
@@ -231,12 +236,20 @@ public class AddRentAttributeActivity extends BaseActivity{
 			Toast.makeText(getApplicationContext(), "请输入身份证信息", Toast.LENGTH_SHORT).show();
 			return false;
 		}
+		if (mRentIDcard.getText().toString().length()<18){
+			Toast.makeText(getApplicationContext(), "身份证信息输入有误", Toast.LENGTH_SHORT).show();
+			return false;
+		}
 		if (mRentName.getText().toString() == null || mRentName.getText().toString().equals("")){
 			Toast.makeText(getApplicationContext(), "请输入姓名", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if (mRentPhone.getText().toString() == null || mRentPhone.getText().toString().equals("")){
 			Toast.makeText(getApplicationContext(), "请输入手机号码", Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		if (mRentPhone.getText().toString().length()<11){
+			Toast.makeText(getApplicationContext(), "手机号码输入有误", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if (mRentReadMe.getText().toString() == null || mRentReadMe.getText().toString().equals("")){
@@ -247,7 +260,10 @@ public class AddRentAttributeActivity extends BaseActivity{
 			Toast.makeText(getApplicationContext(), "请输入租金", Toast.LENGTH_SHORT).show();
 			return false;
 		}
-		
+		if (mRentPrice.getText().toString().equals("0")){
+			Toast.makeText(getApplicationContext(), "租金不能为0", Toast.LENGTH_SHORT).show();
+			return false;
+		}
 		if (mSetStartData == null || mSetStartData.equals("")){
 			Toast.makeText(getApplicationContext(), "请输入租房开始时间", Toast.LENGTH_SHORT).show();
 			return false;
@@ -279,8 +295,17 @@ public class AddRentAttributeActivity extends BaseActivity{
 			mPresenter.startPresentServiceTask();
 	}
 	
+	private void queryIdentifyStatus(String orderId){
+		String url = "http://qxw2332340157.my3w.com/Services.asmx?op=IsOrderConfirmed";
+		SoapObject rpc = new SoapObject(CommonUtil.NAMESPACE, CommonUtil.getSoapName(mQueryStatusAction));
+		rpc.addProperty("id", orderId);
+		mPresenter.readyPresentServiceParams(getApplicationContext(), url, mQueryStatusAction, rpc);
+		mPresenter.startPresentServiceTask();
+	}
+	
+	
+	
 	private void startHttpService(){
-		;
 		try {
 			JSONObject obj = new JSONObject(); 
 			HashMap<String, String> hashMap = new HashMap<>();
@@ -329,9 +354,13 @@ public class AddRentAttributeActivity extends BaseActivity{
 				dismissLoadingView();
 				String value = (String)msg.obj;
 				if (value != null && value.equals("true")){
-					//Toast.makeText(getApplicationContext(), "添加成功", Toast.LENGTH_SHORT).show();
-					showLoadingView();
-					startHttpService();
+					mQrcodeView.setVisibility(View.INVISIBLE);
+					Toast.makeText(getApplicationContext(), "成功", Toast.LENGTH_SHORT).show();
+					Intent intent= new Intent();
+			        setResult(Activity.RESULT_OK, intent);
+			        finish();
+//					showLoadingView();
+//					startHttpService();
 				}else{
 					Toast.makeText(getApplicationContext(), "添加租赁信息失败", Toast.LENGTH_SHORT).show();
 				}
@@ -339,40 +368,78 @@ public class AddRentAttributeActivity extends BaseActivity{
 				dismissLoadingView();
 				getIndentifyInfo((String)msg.obj);
 			}else if (msg.what == 102){
-				getQueryStatusInfo((String)msg.obj);
+				parseQueryStatus((String)msg.obj);
 			}
 		}
 		
 	};
-	private void queryIdentifyStatus(String randNum){
-		String url = "https://nid.sdtt.com.cn/AppRegSvr/thirdsysinforsvr/hauthretquery/";
-		String random = "'strRandomNum':'"+randNum+"'";
-		String appId = "'AppID':'"+mAppIDString+"',";
-		mQueryStatusUrl = url+appId+random;
-		mPresenter.readyPresentHttpServiceParams(getApplicationContext(), mQueryStatusUrl, null);
-		mPresenter.startPresentHttpServiceTask();
-	}
-	private void getIndentifyInfo(String value){
-		IdentifyModel info = (IdentifyModel) JsonObjectParse.parseIdentifyInfo(value);
-		if (info == null){
-			return;
-		}
-		String ret = info.getIdentifyStatus();
-		if (ret != null){
-			if (ret.equals("0")){
-				Toast.makeText(getApplicationContext(), info.getIdentifyInfo(), Toast.LENGTH_SHORT).show();
-			}else if (ret.equals("1")){
-				String qrUrl = info.getIdentifyInfo();
-				mRandNum = qrUrl;
-				mQrcodeView.setVisibility(View.VISIBLE);
-				ImageView qrImageView = (ImageView) mQrcodeView.findViewById(R.id.id_qrcode_view);
-				Log.e("mingguo", "  ret == 1  "+qrImageView.getWidth()+"  height  "+qrImageView.getWidth());
-				Bitmap qrBitmap = UniversalUtil.createQRImage(qrUrl, qrImageView, qrImageView.getWidth(), qrImageView.getHeight());
-				qrImageView.setImageBitmap(qrBitmap);
-				queryIdentifyStatus(mRandNum);
-				
+	
+	private void parseQueryStatus(String value){
+		if (value != null){
+			try {
+				JSONObject object = new JSONObject(value);
+				if (object != null){
+					String ret = object.optString("ret");
+					
+					if (ret != null && ret.equals("0")){
+						Toast.makeText(getApplicationContext(), "租户已确认完成 ", Toast.LENGTH_SHORT).show();
+						finish();
+					}else{
+						queryIdentifyStatus(mOrderId);
+					}
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void getIndentifyInfo(String value){
+		if (value != null){
+			try {
+				JSONObject object = new JSONObject(value);
+				if (object != null){
+					String ret = object.optString("ret");
+					mOrderId = object.optString("Id");
+					if (mOrderId != null && !mOrderId.equals("")){
+						mQrcodeView.setVisibility(View.VISIBLE);
+						ImageView qrImageView = (ImageView) mQrcodeView.findViewById(R.id.id_qrcode_view);
+						Log.e("mingguo", "  ret == 0  "+qrImageView.getWidth()+"  height  "+qrImageView.getWidth());
+						Bitmap qrBitmap = UniversalUtil.createQRImage(mOrderId, qrImageView, qrImageView.getWidth(), qrImageView.getHeight());
+						qrImageView.setImageBitmap(qrBitmap);
+						queryIdentifyStatus(mOrderId);
+					}else{
+						Toast.makeText(getApplicationContext(), "failed  return "+value, Toast.LENGTH_SHORT).show();
+					}
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+//		IdentifyModel info = (IdentifyModel) JsonObjectParse.parseIdentifyInfo(value);
+//		if (info == null){
+//			return;
+//		}
+//		String ret = info.getIdentifyStatus();
+//		if (ret != null){
+//			if (ret.equals("0")){
+//				Toast.makeText(getApplicationContext(), info.getIdentifyInfo(), Toast.LENGTH_SHORT).show();
+//			}else if (ret.equals("1")){
+//				String qrUrl = info.getIdentifyInfo();
+//				mRandNum = qrUrl;
+//				mQrcodeView.setVisibility(View.VISIBLE);
+//				ImageView qrImageView = (ImageView) mQrcodeView.findViewById(R.id.id_qrcode_view);
+//				Log.e("mingguo", "  ret == 1  "+qrImageView.getWidth()+"  height  "+qrImageView.getWidth());
+//				Bitmap qrBitmap = UniversalUtil.createQRImage(qrUrl, qrImageView, qrImageView.getWidth(), qrImageView.getHeight());
+//				qrImageView.setImageBitmap(qrBitmap);
+//				queryIdentifyStatus(mRandNum);
+//				
+//			}
+//		}
 	}
 	
 	private void getQueryStatusInfo(String value){
@@ -383,11 +450,8 @@ public class AddRentAttributeActivity extends BaseActivity{
 		String ret = info.getIdentifyStatus();
 		if (ret != null){
 			if (ret.equals("1")){
-				mQrcodeView.setVisibility(View.INVISIBLE);
-				Toast.makeText(getApplicationContext(), info.getIdentifyInfo(), Toast.LENGTH_SHORT).show();
-				Intent intent= new Intent();
-		        setResult(Activity.RESULT_OK, intent);
-		        finish();
+				startAddRentInfo();
+				
 			}else if (ret.equals("0")){
 				queryIdentifyStatus(mRandNum);
 			}else {
@@ -440,20 +504,20 @@ public class AddRentAttributeActivity extends BaseActivity{
 		if (action != null && templateInfo != null){
 			if (action.equals(mAddRentAction)){
 				Message msg = mHandler.obtainMessage();
-				msg.what = 100;
+				msg.what = 101;
 				msg.obj = templateInfo;
 				msg.sendToTarget();
 			}else if (action.equals(mIdentifyUrl)){
 				Log.e("mingguo", "identify url "+mIdentifyUrl);
-				Message msg = mHandler.obtainMessage();
-				msg.what = 101;
-				msg.obj = templateInfo;
-				msg.sendToTarget();
-			}else if (action.equals(mQueryStatusUrl)){
+//				Message msg = mHandler.obtainMessage();
+//				msg.what = 101;
+//				msg.obj = templateInfo;
+//				msg.sendToTarget();
+			}else if (action.equals(mQueryStatusAction)){
 				Message msg = new Message();
 				msg.what = 102;
 				msg.obj = templateInfo;
-				mHandler.sendMessageDelayed(msg, 4000);
+				mHandler.sendMessageDelayed(msg, 3000);
 			}
 		}
 		
@@ -463,7 +527,7 @@ public class AddRentAttributeActivity extends BaseActivity{
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		mHandler.removeMessages(102);
+		mHandler.removeCallbacksAndMessages(null);
 	}
 	
 	

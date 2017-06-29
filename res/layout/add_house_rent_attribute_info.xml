@@ -150,6 +150,7 @@
 		        		 android:maxLength="18"
 		        		 android:paddingLeft="5dp"
 		        		 android:textSize="14dp"
+		        		 android:digits="@string/edit_input"
 		        		 android:background="@drawable/item_shape_focus_no_corner"
 		        		 android:textColor="#afaeae"
 	        	        />

@@ -64,16 +64,16 @@ public class MainActivity extends Activity implements DataStatusInterface{
 				rpc.addProperty("loginName", "songxiabao");
 				rpc.addProperty("password", "123456");
 				rpc.addProperty("userType", "1");
-				rpc.addProperty("realName", "ËÎ±¦Àû");
-				rpc.addProperty("title", "ÑÝÔ±");
-				rpc.addProperty("sex", "ÄÐ");
+				rpc.addProperty("realName", "ï¿½Î±ï¿½ï¿½ï¿½");
+				rpc.addProperty("title", "ï¿½ï¿½Ô±");
+				rpc.addProperty("sex", "ï¿½ï¿½");
 				rpc.addProperty("phone", "18888888888");
 				rpc.addProperty("fax", "00000000000");
 				rpc.addProperty("email", "songxiaobao@126.com");
 				rpc.addProperty("idcard", "120110198102098888");
-				rpc.addProperty("nickName", "ËÎÐ¡±¦");
-				rpc.addProperty("address", "¼ªÁÖÊ¡Í¨»¯ÊÐ»ÔÄÏÏØ");
-				rpc.addProperty("status", "0"); //0Õý³££¬1¼àÊÓÖÐ
+				rpc.addProperty("nickName", "ï¿½ï¿½Ð¡ï¿½ï¿½");
+				rpc.addProperty("address", "ï¿½ï¿½ï¿½ï¿½Ê¡Í¨ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½");
+				rpc.addProperty("status", "0"); //0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 				presenter.startPresentServiceTask();
 				
@@ -93,8 +93,8 @@ public class MainActivity extends Activity implements DataStatusInterface{
 				rpc.addProperty("loginName", "songxiabao2"); 
 				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 				presenter.startPresentServiceTask();
-				//  on status success  false ÓÃ»§ÃûÒÑ×¢²á
-				// on status success  true   ÓÃ»§ÃûÃ»±»×¢²á
+				//  on status success  false ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
+				// on status success  true   ï¿½Ã»ï¿½ï¿½ï¿½Ã»ï¿½ï¿½×¢ï¿½ï¿½
 			}
 		});
 		
@@ -111,8 +111,8 @@ public class MainActivity extends Activity implements DataStatusInterface{
 				rpc.addProperty("password", "1234567"); 
 				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 				presenter.startPresentServiceTask();
-				//  on status success  true µÇÂ¼³É¹¦
-				// oon status success  false   µÇÂ½Ê§°Ü
+				//  on status success  true ï¿½ï¿½Â¼ï¿½É¹ï¿½
+				// oon status success  false   ï¿½ï¿½Â½Ê§ï¿½ï¿½
 			}
 		});
 		
@@ -124,33 +124,33 @@ public class MainActivity extends Activity implements DataStatusInterface{
 				String url = "http://qxw2332340157.my3w.com/services.asmx?op=AddRentInfo";
 				String soapaction = "http://tempuri.org/AddRentInfo";
 				SoapObject rpc = new SoapObject(CommonUtil.NAMESPACE, CommonUtil.getSoapName(soapaction));
-				rpc.addProperty("RentNo", "songxiabao");   //·¿²úÖ¤±àºÅ
-				rpc.addProperty("RDName", "1234567");      //Çø»® ±ØÌî£¬GetDistrictList,´«ÖµLDID</param>
-				rpc.addProperty("RSName", "songxiabao");   //½ÖµÀ ±ØÌî£¬GetStreetList»ñÈ¡£¬´«ÖµLSID</param>
-				rpc.addProperty("RRName", "1234567");      //½ÖÇø ±ØÌî£¬GetStreetList»ñÈ¡£¬´«ÖµLSID</param>
-				rpc.addProperty("RPSName", "songxiabao");  //ËùÊôÅÉ³öËù£¬Ñ¡Ôñ£¬±ØÌî  parentstationId»ñÈ¡£¬´«ÖµPSID
-				rpc.addProperty("RAddress", "1234567");    //·¿ÎÝÏêÏ¸µØÖ·£¬ÓÃ»§ÊäÈë£¬±ØÌî
-				rpc.addProperty("RDoor", "songxiabao");    //ÃÅÅÆºÅ£¬ÓÃ»§ÊäÈë£¬±ØÌî
-				rpc.addProperty("RTotalDoor", "1234567");  //×ÜÃÅÅÆºÅ£¬ÓÃ»§ÊäÈë£¬Ñ¡Ìî
+				rpc.addProperty("RentNo", "songxiabao");   //ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½
+				rpc.addProperty("RDName", "1234567");      //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î£¬GetDistrictList,ï¿½ï¿½ÖµLDID</param>
+				rpc.addProperty("RSName", "songxiabao");   //ï¿½Öµï¿½ ï¿½ï¿½ï¿½î£¬GetStreetListï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµLSID</param>
+				rpc.addProperty("RRName", "1234567");      //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î£¬GetStreetListï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµLSID</param>
+				rpc.addProperty("RPSName", "songxiabao");  //ï¿½ï¿½ï¿½ï¿½ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ñ£¬±ï¿½ï¿½ï¿½  parentstationIdï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµPSID
+				rpc.addProperty("RAddress", "1234567");    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½
+				rpc.addProperty("RDoor", "songxiabao");    //ï¿½ï¿½ï¿½ÆºÅ£ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½
+				rpc.addProperty("RTotalDoor", "1234567");  //ï¿½ï¿½ï¿½ï¿½ï¿½ÆºÅ£ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬Ñ¡ï¿½ï¿½
 				
-				rpc.addProperty("RRoomType", "songxiabao"); //·¿ÐÍ£¬Ñ¡Ôñ£¬±ØÌî£¬GetHouseType ·¨»ñÈ¡£¬´«ÖµRSOID
-				rpc.addProperty("RDirection", "1234567");   //³¯Ïò£¬Ñ¡Ôñ£¬±ØÌî£¬GetHouseDirection·½·¨»ñÈ¡£¬´«ÖµRSOID
-				rpc.addProperty("RStructure", "songxiabao"); //½á¹¹£¬Ñ¡Ôñ£¬±ØÌî£¬GetHouseStructure·½·¨»ñÈ¡£¬´«ÖµRSOID
-				rpc.addProperty("RBuildingType", "1234567"); //½¨Öþ½á¹¹£¬Ñ¡Ôñ£¬±ØÌî£¬GetBuildingStructure·½·¨»ñÈ¡£¬´«ÖµRSOID
-				rpc.addProperty("RFloor", "songxiabao");     //·¿ÎÝ²ãÊý£¬ÓÃ»§ÊäÈë£¬Ñ¡Ìî
-				rpc.addProperty("RTotalFloor", "1234567");   //·¿ÎÝ×Ü²ãÊý£¬ÓÃ»§ÊäÈë£¬Ñ¡Ìî
-				rpc.addProperty("RHouseAge", "songxiabao");  //·¿Áä£¬ÓÃ»§ÊäÈë£¬Ñ¡Ìî
-				rpc.addProperty("RRentArea", "1234567");     //·¿ÎÝÃæ»ý£¬ÓÃ»§ÊäÈë£¬±ØÌî
+				rpc.addProperty("RRoomType", "songxiabao"); //ï¿½ï¿½ï¿½Í£ï¿½Ñ¡ï¿½ñ£¬±ï¿½ï¿½î£¬GetHouseType ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµRSOID
+				rpc.addProperty("RDirection", "1234567");   //ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ñ£¬±ï¿½ï¿½î£¬GetHouseDirectionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµRSOID
+				rpc.addProperty("RStructure", "songxiabao"); //ï¿½á¹¹ï¿½ï¿½Ñ¡ï¿½ñ£¬±ï¿½ï¿½î£¬GetHouseStructureï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµRSOID
+				rpc.addProperty("RBuildingType", "1234567"); //ï¿½ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½Ñ¡ï¿½ñ£¬±ï¿½ï¿½î£¬GetBuildingStructureï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµRSOID
+				rpc.addProperty("RFloor", "songxiabao");     //ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬Ñ¡ï¿½ï¿½
+				rpc.addProperty("RTotalFloor", "1234567");   //ï¿½ï¿½ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬Ñ¡ï¿½ï¿½
+				rpc.addProperty("RHouseAge", "songxiabao");  //ï¿½ï¿½ï¿½ä£¬ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬Ñ¡ï¿½ï¿½
+				rpc.addProperty("RRentArea", "1234567");     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½
 				
-				rpc.addProperty("RProperty", "songxiabao");  //·¿²úÐÔÖÊ£¬Ñ¡Ôñ£¬±ØÌî£¬GetHouseProperty·½·¨»ñÈ¡£¬´«ÖµRSOID
-				rpc.addProperty("ROwner", "1234567");        //·¿Ö÷Ãû³Æ£¬ÓÃ»§ÊäÈë£¬±ØÌî
-				rpc.addProperty("ROwnerTel", "songxiabao");  //·¿Ö÷µç»°£¬ÓÃ»§ÊäÈë£¬Ñ¡Ìî<
-				rpc.addProperty("RIDCard", "1234567");       //·¿Ö÷Éí·ÝÖ¤ºÅ£¬ÓÃ»§ÊäÈë£¬±ØÌî
-				rpc.addProperty("RLocationDescription", "songxiabao");  //·¿ÎÝÃèÊö£¬ÓÃ»§ÊäÈë£¬Ñ¡Ìî
-				rpc.addProperty("RPSParentName", "1234567");            //ËùÊôÅÉ·Ö¾Ö£¬Ñ¡Ôñ£¬±ØÌî£¬GetPoliceStationList»ñÈ¡£¬´«ÖµPSID
-				rpc.addProperty("createdBy", "songxiabao");             //´´½¨ÈË£¬µÇÂ¼Ãû£¬±ØÌî
-				rpc.addProperty("rentType", "1234567");                 //×âÁÞÀàÐÍ£¬Ñ¡Ôñ£¬±ØÌî£¬GetHouseRentType·½·¨»ñÈ¡£¬´«ÖµRSOID
-				rpc.addProperty("ownType", "songxiabao");               //ËùÓÐÀàÐÍ£¬Ñ¡Ôñ£¬±ØÌî£¬GetHouseOwnType·½·¨»ñÈ¡£¬´«ÖµRSOID
+				rpc.addProperty("RProperty", "songxiabao");  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½Ñ¡ï¿½ñ£¬±ï¿½ï¿½î£¬GetHousePropertyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµRSOID
+				rpc.addProperty("ROwner", "1234567");        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½
+				rpc.addProperty("ROwnerTel", "songxiabao");  //ï¿½ï¿½ï¿½ï¿½ï¿½ç»°ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬Ñ¡ï¿½ï¿½<
+				rpc.addProperty("RIDCard", "1234567");       //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½
+				rpc.addProperty("RLocationDescription", "songxiabao");  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£¬Ñ¡ï¿½ï¿½
+				rpc.addProperty("RPSParentName", "1234567");            //ï¿½ï¿½ï¿½ï¿½ï¿½É·Ö¾Ö£ï¿½Ñ¡ï¿½ñ£¬±ï¿½ï¿½î£¬GetPoliceStationListï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµPSID
+				rpc.addProperty("createdBy", "songxiabao");             //ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				rpc.addProperty("rentType", "1234567");                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½Ñ¡ï¿½ñ£¬±ï¿½ï¿½î£¬GetHouseRentTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµRSOID
+				rpc.addProperty("ownType", "songxiabao");               //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½Ñ¡ï¿½ñ£¬±ï¿½ï¿½î£¬GetHouseOwnTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÖµRSOID
 				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 				presenter.startPresentServiceTask();
 				
@@ -169,17 +169,17 @@ public class MainActivity extends Activity implements DataStatusInterface{
 //				
 //				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 //				presenter.startPresentServiceTask();
-				//  on status success  [{"RSOUrl":"0","IsVisible":null,"RSOName":"Ìì½òÊÐ","RSOParentNo":18,"RSOID":20,"RSONo":0,"RSOOrder":1},{"RSOUrl":"0","IsVisible":null,"RSOName":"±±¾©ÊÐ","RSOParentNo":18,"RSOID":21,"RSONo":0,"RSOOrder":2},{"RSOUrl":"0","IsVisible":null,"RSOName":"ÉÏº£ÊÐ","RSOParentNo":18,"RSOID":22,"RSONo":0,"RSOOrder":3}]
+				//  on status success  [{"RSOUrl":"0","IsVisible":null,"RSOName":"ï¿½ï¿½ï¿½ï¿½ï¿½","RSOParentNo":18,"RSOID":20,"RSONo":0,"RSOOrder":1},{"RSOUrl":"0","IsVisible":null,"RSOName":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","RSOParentNo":18,"RSOID":21,"RSONo":0,"RSOOrder":2},{"RSOUrl":"0","IsVisible":null,"RSOName":"ï¿½Ïºï¿½ï¿½ï¿½","RSOParentNo":18,"RSOID":22,"RSONo":0,"RSOOrder":3}]
 				String url = "http://qxw2332340157.my3w.com/services.asmx?op=AddRentInfo";
 				String soapaction = "http://tempuri.org/AddRentInfo";
 				SoapObject rpc = new SoapObject(CommonUtil.NAMESPACE, CommonUtil.getSoapName(soapaction));
 				rpc.addProperty("RentNo", "123456789");
-				rpc.addProperty("RAddress", "¼ªÁÖÊ¡Í¨»¯ÊÐ»ÔÄÏÏØ");
-				rpc.addProperty("RRentArea", "60Æ½Ã×");
-				rpc.addProperty("RProperty", "·¿²úÐÔÖÊ");
-				rpc.addProperty("ROwner", "ËÎÐ¡±¦");
+				rpc.addProperty("RAddress", "ï¿½ï¿½ï¿½ï¿½Ê¡Í¨ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½");
+				rpc.addProperty("RRentArea", "60Æ½ï¿½ï¿½");
+				rpc.addProperty("RProperty", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+				rpc.addProperty("ROwner", "ï¿½ï¿½Ð¡ï¿½ï¿½");
 				rpc.addProperty("RIDCard", "120110198102098888");
-				rpc.addProperty("RLocationDescription", "songxiabaoµÄ·¿×Ó");
+				rpc.addProperty("RLocationDescription", "songxiabaoï¿½Ä·ï¿½ï¿½ï¿½");
 				
 				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 				presenter.startPresentServiceTask();
@@ -196,7 +196,7 @@ public class MainActivity extends Activity implements DataStatusInterface{
 //				SoapObject rpc = new SoapObject(CommonUtil.NAMESPACE, CommonUtil.getSoapName(soapaction));
 //				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 //				presenter.startPresentServiceTask();
-				// [{"LDStatus":true,"LDShortName":"HP","LDIsImport":false,"LDID":1,"LDName":"ºÍÆ½Çø²âÊÔ","LDDescription":"Ìì½òÊÐºÍÆ½Çø","LDMap":"1"},{"LDStatus":true,"LDShortName":"HQ","LDIsImport":false,"LDID":3,"LDName":"ºìÇÅÇø","LDDescription":"Ìì½òÊÐºìÇÅÇø","LDMap":"2"},{"LDStatus":true,"LDShortName":"HX","LDIsImport":false,"LDID":4,"LDName":"ºÓÎ÷Çø","LDDescription":"Ìì½òÊÐºÓÎ÷Çø","LDMap":"3"},{"LDStatus":true,"LDShortName":"HD","LDIsImport":false,"LDID":7,"LDName":"ºÓ¶«Çø","LDDescription":"1","LDMap":"1"}]
+				// [{"LDStatus":true,"LDShortName":"HP","LDIsImport":false,"LDID":1,"LDName":"ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","LDDescription":"ï¿½ï¿½ï¿½ï¿½Ðºï¿½Æ½ï¿½ï¿½","LDMap":"1"},{"LDStatus":true,"LDShortName":"HQ","LDIsImport":false,"LDID":3,"LDName":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","LDDescription":"ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½","LDMap":"2"},{"LDStatus":true,"LDShortName":"HX","LDIsImport":false,"LDID":4,"LDName":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","LDDescription":"ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½","LDMap":"3"},{"LDStatus":true,"LDShortName":"HD","LDIsImport":false,"LDID":7,"LDName":"ï¿½Ó¶ï¿½ï¿½ï¿½","LDDescription":"1","LDMap":"1"}]
 			
 				
 				String url = "http://qxw2332340157.my3w.com/services.asmx?op=GetHouseInfoByLoginName";
@@ -220,14 +220,14 @@ public class MainActivity extends Activity implements DataStatusInterface{
 //				rpc.addProperty("district", "1");
 //				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 //				presenter.startPresentServiceTask();
-				// [{"LSStatus":true,"LSName":"ºÍÆ½½ÖµÀ","LSMap":"1","LDName":"ºÍÆ½Çø","LSIsImport":true,"LSID":1,"LDID":1,"LSDescription":"2"},{"LSStatus":true,"LSName":"ºÍÆ½2","LSMap":"1","LDName":"ºÍÆ½Çø","LSIsImport":false,"LSID":5,"LDID":1,"LSDescription":"1"}]
+				// [{"LSStatus":true,"LSName":"ï¿½ï¿½Æ½ï¿½Öµï¿½","LSMap":"1","LDName":"ï¿½ï¿½Æ½ï¿½ï¿½","LSIsImport":true,"LSID":1,"LDID":1,"LSDescription":"2"},{"LSStatus":true,"LSName":"ï¿½ï¿½Æ½2","LSMap":"1","LDName":"ï¿½ï¿½Æ½ï¿½ï¿½","LSIsImport":false,"LSID":5,"LDID":1,"LSDescription":"1"}]
 //				String url = "http://qxw2332340157.my3w.com/services.asmx?op=GetHouseInfo";
 //				String soapaction = "http://tempuri.org/GetHouseInfo";
 //				SoapObject rpc = new SoapObject(CommonUtil.NAMESPACE, CommonUtil.getSoapName(soapaction));
 //				rpc.addProperty("idcard", "12010519780419061X");
 //				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 //				presenter.startPresentServiceTask();
-				//on status success  [{"RID":1,"IsObsoleted":false,"RPSParentName":"ÄÏ¿ª·Ö¾Ö²âÊÔ","RModifiedDate":"\/Date(1488589873000)\/","RentNO":"HP-10000001","RHouseAge":1,"day":20,"RBuildingType":"×©»ì","LDID":1,"ROwnType":"","Latitude":39.1155240,"RRentArea":8.00,"RMapID":0,"RDirection":"¶«Î÷Ïò","RCreatedDate":"\/Date(1487520000000)\/","month":2,"RProperty":"Ë½²ú","PSID":11,"RBuildArea":0.00,"hour":0,"RCreatedDate1":"\/Date(1487520000000)\/","RPSName":"ÌåÓýÖÐÐÄÅÉ³öËù","RTotalFloor":89,"RRoomType":"¶þÊÒ","RAddress":"Ìì½òÊÐºÓÎ÷ÇøÂí³¡µÀ23ºÅ","RRentType":"","RTotalDoor":8,"RIDCard":"12010519780419061X","ROwnerTel":"13920887566","year":2017,"RCreatedBy":"²âÊÔÈËÔ±","RLocationDescription":"88888","RDName":"ºÍÆ½Çø²âÊÔ","IsAvailable":"ÒÑ×â","RPSID":11,"RStructure":"¿ò¼Ü","ROwner":"ÀîÈý","RFloor":"121","RModifiedBy":"Admin","RRName":"ºÍÆ½²âÊÔ","RSName":"ºÍÆ½½ÖµÀ","Longitude":117.2148200,"Available":true,"RDoor":"899"},{"RID":11,"IsObsoleted":false,"RPSParentName":"ÄÏ¿ª·Ö¾Ö²âÊÔ","RModifiedDate":null,"RentNO":"HP-10000004","RHouseAge":5,"day":1,"RBuildingType":"×©»ì","LDID":1,"ROwnType":"","Latitude":39.1248090,"RRentArea":63.20,"RMapID":0,"RDirection":"ÄÏ±±Ïò","RCreatedDate":"\/Date(1488339378000)\/","month":3,"RProperty":"Ë½²ú","PSID":16,"RBuildArea":0.00,"hour":11,"RCreatedDate1":"\/Date(1488339378000)\/","RPSName":"Íõ¶¥µÌÅÉ³öËù","RTotalFloor":56,"RRoomType":"Ò»ÊÒ","RAddress":"Ìì½òÊÐºÍÆ½Çøî«ºÍÆ½16ºÅÂ¥1-202","RRentType":"","RTotalDoor":3,"RIDCard":"12010519780419061X","ROwnerTel":"13920887566","year":2017,"RCreatedBy":"Admin","RLocationDescription":"»é·¿£¬¹ý5Äê£¬¾«×°ÐÞ","RDName":"ºÍÆ½Çø²âÊÔ","IsAvailable":"Î´×â","RPSID":16,"RStructure":"¿ò¼Ü","ROwner":"Ã«ÄËá¿","RFloor":"18","RModifiedBy":null,"RRName":"ºÍÆ½²âÊÔ","RSName":"ºÍÆ½½ÖµÀ","Longitude":117.2028140,"Available":false,"RDoor":"1102"},{"RID":13,"IsObsoleted":false,"RPSParentName":"ÄÏ¿ª·Ö¾Ö²âÊÔ","RModifiedDate":"\/Date(1488822651000)\/","RentNO":"JX-2017004","RHouseAge":2,"day":6,"RBuildingType":"","LDID":3,"ROwnType":"","Latitude":39.0844940,"RRentArea":123.00,"RMapID":0,"RDirection":"","RCreatedDate":"\/Date(1488747444000)\/","month":3,"RProperty":"Ë½²ú","PSID":16,"RBuildArea":0.00,"hour":4,"RCreatedDate1":"\/Date(1488747444000)\/","RPSName":"Íõ¶¥µÌÅÉ³öËù","RTotalFloor":34,"RRoomType":"","RAddress":"Ìì½òÊÐºÓÎ÷ÇøÐ¡°×Â¥105ºÅ","RRentType":"","RTotalDoor":1,"RIDCard":"12010519780419061X","ROwnerTel":"13920887566","year":2017,"RCreatedBy":"admin","RLocationDescription":"¶ÀÓÐ","RDName":"ºìÇÅÇø","IsAvailable":"ÒÑ×â","RPSID":16,"RStructure":"","ROwner":"ÀîËÄ","RFloor":"12","RModifiedBy":"Admin","RRName":"ºìÇÅ11","RSName":"ºìÇÅ1","Longitude":117.2361650,"Available":true,"RDoor":"189"},{"RID":14,"IsObsoleted":false,"RPSParentName":"ÄÏ¿ª·Ö¾Ö²âÊÔ","RModifiedDate":"\/Date(1489605813000)\/","RentNO":"JX-20170011","RHouseAge":0,"day":6,"RBuildingType":"×©»ì","LDID":3,"ROwnType":"","Latitude":39.0844940,"RRentArea":123.00,"RMapID":0,"RDirection":"ÄÏ±±Ïò","RCreatedDate":"\/Date(1488749266000)\/","month":3,"RProperty":"Ë½²ú","PSID":11,"RBuildArea":0.00,"hour":5,"RCreatedDate1":"\/Date(1488749266000)\/","RPSName":"ÌåÓýÖÐÐÄÅÉ³öËù","RTotalFloor":0,"RRoomType":"Ò»ÊÒ","RAddress":"Ìì½òÊÐºÓÎ÷ÇøÐ¡°×Â¥105ºÅ","RRentType":"","RTotalDoor":1,"RIDCard":"12010519780419061X","ROwnerTel":"13920887566","year":2017,"RCreatedBy":"admin","RLocationDescription":"¶ÀÓÐ","RDName":"ºìÇÅÇø","IsAvailable":"Î´×â","RPSID":11,"RStructure":"¿ò¼Ü","ROwner":"ÀîËÄ","RFloor":"121","RModifiedBy":"Admin","RRName":"ºìÇÅ11","RSName":"ºìÇÅ1","Longitude":117.2361650,"Available":false,"RDoor":"11111"},{"RID":18,"IsObsoleted":false,"RPSParentName":"ºÍÆ½·Ö¾Ö","RModifiedDate":"\/Date(1488822621000)\/","RentNO":"JX-20170012","RHouseAge":0,"day":6,"RBuildingType":"×©»ì","LDID":3,"ROwnType":"","Latitude":39.1679570,"RRentArea":123.00,"RMapID":0,"RDirection":"¶«Î÷Ïò","RCreatedDate":"\/Date(1488749776000)\/","month":3,"
+				//on status success  [{"RID":1,"IsObsoleted":false,"RPSParentName":"ï¿½Ï¿ï¿½ï¿½Ö¾Ö²ï¿½ï¿½ï¿½","RModifiedDate":"\/Date(1488589873000)\/","RentNO":"HP-10000001","RHouseAge":1,"day":20,"RBuildingType":"×©ï¿½ï¿½","LDID":1,"ROwnType":"","Latitude":39.1155240,"RRentArea":8.00,"RMapID":0,"RDirection":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","RCreatedDate":"\/Date(1487520000000)\/","month":2,"RProperty":"Ë½ï¿½ï¿½","PSID":11,"RBuildArea":0.00,"hour":0,"RCreatedDate1":"\/Date(1487520000000)\/","RPSName":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É³ï¿½ï¿½ï¿½","RTotalFloor":89,"RRoomType":"ï¿½ï¿½ï¿½ï¿½","RAddress":"ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½23ï¿½ï¿½","RRentType":"","RTotalDoor":8,"RIDCard":"12010519780419061X","ROwnerTel":"13920887566","year":2017,"RCreatedBy":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±","RLocationDescription":"88888","RDName":"ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","IsAvailable":"ï¿½ï¿½ï¿½ï¿½","RPSID":11,"RStructure":"ï¿½ï¿½ï¿½","ROwner":"ï¿½ï¿½ï¿½ï¿½","RFloor":"121","RModifiedBy":"Admin","RRName":"ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½","RSName":"ï¿½ï¿½Æ½ï¿½Öµï¿½","Longitude":117.2148200,"Available":true,"RDoor":"899"},{"RID":11,"IsObsoleted":false,"RPSParentName":"ï¿½Ï¿ï¿½ï¿½Ö¾Ö²ï¿½ï¿½ï¿½","RModifiedDate":null,"RentNO":"HP-10000004","RHouseAge":5,"day":1,"RBuildingType":"×©ï¿½ï¿½","LDID":1,"ROwnType":"","Latitude":39.1248090,"RRentArea":63.20,"RMapID":0,"RDirection":"ï¿½Ï±ï¿½ï¿½ï¿½","RCreatedDate":"\/Date(1488339378000)\/","month":3,"RProperty":"Ë½ï¿½ï¿½","PSID":16,"RBuildArea":0.00,"hour":11,"RCreatedDate1":"\/Date(1488339378000)\/","RPSName":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É³ï¿½ï¿½ï¿½","RTotalFloor":56,"RRoomType":"Ò»ï¿½ï¿½","RAddress":"ï¿½ï¿½ï¿½ï¿½Ðºï¿½Æ½ï¿½ï¿½î«ºï¿½Æ½16ï¿½ï¿½Â¥1-202","RRentType":"","RTotalDoor":3,"RIDCard":"12010519780419061X","ROwnerTel":"13920887566","year":2017,"RCreatedBy":"Admin","RLocationDescription":"ï¿½é·¿ï¿½ï¿½ï¿½ï¿½5ï¿½ê£¬ï¿½ï¿½×°ï¿½ï¿½","RDName":"ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","IsAvailable":"Î´ï¿½ï¿½","RPSID":16,"RStructure":"ï¿½ï¿½ï¿½","ROwner":"Ã«ï¿½ï¿½ï¿½","RFloor":"18","RModifiedBy":null,"RRName":"ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½","RSName":"ï¿½ï¿½Æ½ï¿½Öµï¿½","Longitude":117.2028140,"Available":false,"RDoor":"1102"},{"RID":13,"IsObsoleted":false,"RPSParentName":"ï¿½Ï¿ï¿½ï¿½Ö¾Ö²ï¿½ï¿½ï¿½","RModifiedDate":"\/Date(1488822651000)\/","RentNO":"JX-2017004","RHouseAge":2,"day":6,"RBuildingType":"","LDID":3,"ROwnType":"","Latitude":39.0844940,"RRentArea":123.00,"RMapID":0,"RDirection":"","RCreatedDate":"\/Date(1488747444000)\/","month":3,"RProperty":"Ë½ï¿½ï¿½","PSID":16,"RBuildArea":0.00,"hour":4,"RCreatedDate1":"\/Date(1488747444000)\/","RPSName":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É³ï¿½ï¿½ï¿½","RTotalFloor":34,"RRoomType":"","RAddress":"ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Â¥105ï¿½ï¿½","RRentType":"","RTotalDoor":1,"RIDCard":"12010519780419061X","ROwnerTel":"13920887566","year":2017,"RCreatedBy":"admin","RLocationDescription":"ï¿½ï¿½ï¿½ï¿½","RDName":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","IsAvailable":"ï¿½ï¿½ï¿½ï¿½","RPSID":16,"RStructure":"","ROwner":"ï¿½ï¿½ï¿½ï¿½","RFloor":"12","RModifiedBy":"Admin","RRName":"ï¿½ï¿½ï¿½ï¿½11","RSName":"ï¿½ï¿½ï¿½ï¿½1","Longitude":117.2361650,"Available":true,"RDoor":"189"},{"RID":14,"IsObsoleted":false,"RPSParentName":"ï¿½Ï¿ï¿½ï¿½Ö¾Ö²ï¿½ï¿½ï¿½","RModifiedDate":"\/Date(1489605813000)\/","RentNO":"JX-20170011","RHouseAge":0,"day":6,"RBuildingType":"×©ï¿½ï¿½","LDID":3,"ROwnType":"","Latitude":39.0844940,"RRentArea":123.00,"RMapID":0,"RDirection":"ï¿½Ï±ï¿½ï¿½ï¿½","RCreatedDate":"\/Date(1488749266000)\/","month":3,"RProperty":"Ë½ï¿½ï¿½","PSID":11,"RBuildArea":0.00,"hour":5,"RCreatedDate1":"\/Date(1488749266000)\/","RPSName":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É³ï¿½ï¿½ï¿½","RTotalFloor":0,"RRoomType":"Ò»ï¿½ï¿½","RAddress":"ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Â¥105ï¿½ï¿½","RRentType":"","RTotalDoor":1,"RIDCard":"12010519780419061X","ROwnerTel":"13920887566","year":2017,"RCreatedBy":"admin","RLocationDescription":"ï¿½ï¿½ï¿½ï¿½","RDName":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","IsAvailable":"Î´ï¿½ï¿½","RPSID":11,"RStructure":"ï¿½ï¿½ï¿½","ROwner":"ï¿½ï¿½ï¿½ï¿½","RFloor":"121","RModifiedBy":"Admin","RRName":"ï¿½ï¿½ï¿½ï¿½11","RSName":"ï¿½ï¿½ï¿½ï¿½1","Longitude":117.2361650,"Available":false,"RDoor":"11111"},{"RID":18,"IsObsoleted":false,"RPSParentName":"ï¿½ï¿½Æ½ï¿½Ö¾ï¿½","RModifiedDate":"\/Date(1488822621000)\/","RentNO":"JX-20170012","RHouseAge":0,"day":6,"RBuildingType":"×©ï¿½ï¿½","LDID":3,"ROwnType":"","Latitude":39.1679570,"RRentArea":123.00,"RMapID":0,"RDirection":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","RCreatedDate":"\/Date(1488749776000)\/","month":3,"
 			
 				String url = "http://qxw2332340157.my3w.com/services.asmx?op=GetUserInfo";
 				String soapaction = "http://tempuri.org/GetUserInfo";
@@ -251,7 +251,7 @@ public class MainActivity extends Activity implements DataStatusInterface{
 //				rpc.addProperty("street", "5");
 //				presenter.readyPresentServiceParams(getApplicationContext(), url, soapaction, rpc);
 //				presenter.startPresentServiceTask();
-				// [{"LSStatus":true,"LSName":"ºÍÆ½½ÖµÀ","LSMap":"1","LDName":"ºÍÆ½Çø","LSIsImport":true,"LSID":1,"LDID":1,"LSDescription":"2"},{"LSStatus":true,"LSName":"ºÍÆ½2","LSMap":"1","LDName":"ºÍÆ½Çø","LSIsImport":false,"LSID":5,"LDID":1,"LSDescription":"1"}]
+				// [{"LSStatus":true,"LSName":"ï¿½ï¿½Æ½ï¿½Öµï¿½","LSMap":"1","LDName":"ï¿½ï¿½Æ½ï¿½ï¿½","LSIsImport":true,"LSID":1,"LDID":1,"LSDescription":"2"},{"LSStatus":true,"LSName":"ï¿½ï¿½Æ½2","LSMap":"1","LDName":"ï¿½ï¿½Æ½ï¿½ï¿½","LSIsImport":false,"LSID":5,"LDID":1,"LSDescription":"1"}]
 			
 				
 			}

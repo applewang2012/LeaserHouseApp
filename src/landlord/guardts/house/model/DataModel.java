@@ -169,8 +169,8 @@ public class DataModel {
 				//HttpClient
 				HttpClient client = new DefaultHttpClient(); 
 				client.getConnectionManager().getSchemeRegistry().register(sch);
-				HttpConnectionParams.setConnectionTimeout(client.getParams(), 30000);   //ÉèÖÃÁ¬½Ó³¬Ê±Öµ30s
-	            HttpConnectionParams.setSoTimeout(client.getParams(), 30000);   //ÉèÖÃ´Ó·þÎñ¶Ë»ñÈ¡Êý¾Ý³¬Ê±Öµ30s
+				HttpConnectionParams.setConnectionTimeout(client.getParams(), 30000);   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½Ê±Öµ30s
+	            HttpConnectionParams.setSoTimeout(client.getParams(), 30000);   //ï¿½ï¿½ï¿½Ã´Ó·ï¿½ï¿½ï¿½Ë»ï¿½È¡ï¿½ï¿½ï¿½Ý³ï¿½Ê±Öµ30s
 	            HttpResponse response = null;
 	            if (mPostData == null){
 	            	HttpGet httpGet = new HttpGet(mUrl);
@@ -179,9 +179,9 @@ public class DataModel {
 	            }else{
 	            	Log.e("house"," post  data  url  "+mUrl);
 	            	HttpPost httpPost = new HttpPost(mUrl);
-					// ´´½¨²ÎÊý¶ÓÁÐ    
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    
 		            List<NameValuePair> urlList = new ArrayList<NameValuePair>(); 
-		            //¼ÓÔØ²ÎÊý
+		            //ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½
 		            for(Map.Entry<String, String> entry:mPostData.entrySet()){    
 		            	urlList.add(new BasicNameValuePair(entry.getKey(), entry.getValue())); 
 		            	Log.i("house", "entry.getKey()  "+entry.getKey()+"  entry.getValue()  "+entry.getValue());
@@ -199,15 +199,15 @@ public class DataModel {
 					HttpEntity resRet = response.getEntity();  
 	                if (resRet != null) 
 	                {  
-	                    String SvrRet = EntityUtils.toString(response.getEntity(),"UTF-8"); //»ñÈ¡µ½·µ»ØÖµ 
+	                    String SvrRet = EntityUtils.toString(response.getEntity(),"UTF-8"); //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ 
 	                    System.out.println( "  SvrRet  "+SvrRet);
 	                    mPresenter.notifyDataRequestSuccess(mUrl, SvrRet);
 //	                    JSONObject SvrRet_Json = JSONObject.fromObject(SvrRet);
-//	                    System.out.println("µÚÈý·½·þÎñÆ÷·µ»ØÖµ£º" + SvrRet);
+//	                    System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½" + SvrRet);
 //	                    if(!SvrRet_Json.getString("ret").equals("1"))
 //	        			{
 //	        				ret = 0;
-//	        				System.out.println("µÚÈý·½·þÎñÆ÷½ÓÊÕ´¦Àí´æÔÚÎÊÌâ£º" + SvrRet_Json.getString("desc"));
+//	        				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£º" + SvrRet_Json.getString("desc"));
 //	        			}
 //	        			else
 //	        			{
@@ -216,21 +216,21 @@ public class DataModel {
 	                }
 	                else
 	                {
-	                	mPresenter.notifyDataRequestError(mUrl, "µÚÈý·½·þÎñÆ÷·µ»ØÖµÎªnull");
-	                	System.out.println( "µÚÈý·½·þÎñÆ÷·µ»ØÖµÎªnull");
+	                	mPresenter.notifyDataRequestError(mUrl, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªnull");
+	                	System.out.println( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªnull");
 	                	ret = 0;
 	                }
 				}
 				else
 				{
-					mPresenter.notifyDataRequestError(mUrl, "µÚÈý·½·þÎñÆ÷¶ËÏìÓ¦ÈÏÖ¤Æ½Ì¨·þÎñÆ÷ÇëÇóÊ§°Ü£¬×´Ì¬Âë£º status  "+StatusCode);
+					mPresenter.notifyDataRequestError(mUrl, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ö¤Æ½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½×´Ì¬ï¿½ë£º status  "+StatusCode);
 	            	ret = 0;
 				}
 	    	}
 	    	catch(Exception e)
 	    	{
-	    		mPresenter.notifyDataRequestError(mUrl, "404:ÏòµÚÈý·½·¢ËÍÈÏÖ¤½á¹ûÊý¾Ý³öÏÖÒì³££¬ret=" + e.toString());
-	    		System.out.println( "404:ÏòµÚÈý·½·¢ËÍÈÏÖ¤½á¹ûÊý¾Ý³öÏÖÒì³££¬ret=" + e.toString());
+	    		mPresenter.notifyDataRequestError(mUrl, "404:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ret=" + e.toString());
+	    		System.out.println( "404:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ret=" + e.toString());
 //	    		ret = 0;
 	    	}
 
@@ -368,10 +368,10 @@ public class DataModel {
             NetworkInfo info = connectivity.getActiveNetworkInfo();  
             if (info != null && info.isConnected())   
             {  
-                // µ±Ç°ÍøÂçÊÇÁ¬½ÓµÄ  
+                // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½  
                 if (info.getState() == NetworkInfo.State.CONNECTED)   
                 {  
-                    // µ±Ç°ËùÁ¬½ÓµÄÍøÂç¿ÉÓÃ  
+                    // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
                     return true;  
                 }  
             }  

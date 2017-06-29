@@ -73,7 +73,7 @@ public class UniversalViewHolder {
 //			
 //			@Override
 //			public void onLoadingFailed(String arg0, View arg1, FailReason reason) {
-//				Log.e(TAG, "推荐位海报加载失�? reason : " + reason.toString());
+//				Log.e(TAG, "推荐位海报加载失�? reason : " + reason.toString());
 //			} 
 //			
 //			@Override

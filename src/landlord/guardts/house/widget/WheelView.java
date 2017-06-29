@@ -660,7 +660,7 @@ public class WheelView extends View {
 	private void drawCenterRect(Canvas canvas) {
 		int center = getHeight() / 2;
 		int offset = (int) (getItemHeight() / 2 * 1.2);
-		/*/ Remarked by wulianghuan 2014-11-27  使用自己的画线，而不是描�?
+		/*/ Remarked by wulianghuan 2014-11-27  使用自己的画线，而不是描�?
 		Rect rect = new Rect(left, top, right, bottom)
 		centerDrawable.setBounds(bounds)
 		centerDrawable.setBounds(0, center - offset, getWidth(), center + offset);

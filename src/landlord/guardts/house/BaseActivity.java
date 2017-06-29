@@ -19,7 +19,7 @@ public class BaseActivity extends Activity implements DataStatusInterface{
 
 	@Override
 	public void onStatusError(String action, String error) {
-		//Toast.makeText(getApplicationContext(), "ÍøÂçÒì³££¬Çë¼ì²éÍøÂç£¡", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(getApplicationContext(), "ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£¡", Toast.LENGTH_SHORT).show();
 	}
 	
 	

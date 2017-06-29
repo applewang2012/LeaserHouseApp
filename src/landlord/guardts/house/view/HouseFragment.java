@@ -270,6 +270,7 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 	
 	@Override
 	public void onStatusSuccess(String action, String templateInfo) {
+		Log.e("housefragment", "on status success  action  "+action+"  info  "+templateInfo);
 		if (action.equals(mGetHouseInfoAction)){
 			Message msgMessage = mHandler.obtainMessage();
 			msgMessage.what = 100;

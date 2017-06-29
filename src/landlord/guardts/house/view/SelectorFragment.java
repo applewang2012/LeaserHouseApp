@@ -47,26 +47,26 @@ public class SelectorFragment extends Fragment implements OnClickListener, OnWhe
 	}
 	
 	private void setUpListener() {
-    	// Ìí¼ÓchangeÊÂ¼þ
+    	// ï¿½ï¿½ï¿½changeï¿½Â¼ï¿½
     	mViewProvince.addChangingListener(this);
-    	// Ìí¼ÓchangeÊÂ¼þ
+    	// ï¿½ï¿½ï¿½changeï¿½Â¼ï¿½
     	mViewCity.addChangingListener(this);
-    	// Ìí¼ÓchangeÊÂ¼þ
+    	// ï¿½ï¿½ï¿½changeï¿½Â¼ï¿½
     	mViewDistrict.addChangingListener(this);
-    	// Ìí¼ÓonclickÊÂ¼þ
+    	// ï¿½ï¿½ï¿½onclickï¿½Â¼ï¿½
     	mBtnConfirm.setOnClickListener(this);
     }
 	
 	private void setUpData() {
 		CommonUtil.initProvinceDatas(getActivity().getApplicationContext());
 		mViewProvince.setViewAdapter(new ArrayWheelAdapter<String>(getActivity(), CommonUtil.mProvinceDatas));
-		// ÉèÖÃ¿É¼ûÌõÄ¿ÊýÁ¿
+		// ï¿½ï¿½ï¿½Ã¿É¼ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
 		mViewProvince.setVisibleItems(7);
 		mViewCity.setVisibleItems(7);
 		mViewDistrict.setVisibleItems(7);
 		updateCities();
 		updateAreas();
-		Toast.makeText(getActivity(), "µ±Ç°Ñ¡ÖÐ:"+CommonUtil.mCurrentProviceName+","+CommonUtil.mCurrentCityName+","
+		Toast.makeText(getActivity(), "ï¿½ï¿½Ç°Ñ¡ï¿½ï¿½:"+CommonUtil.mCurrentProviceName+","+CommonUtil.mCurrentCityName+","
 				+CommonUtil.mCurrentDistrictName+","+CommonUtil.mCurrentZipCode, Toast.LENGTH_SHORT).show();
 	}
 	
@@ -121,7 +121,7 @@ public class SelectorFragment extends Fragment implements OnClickListener, OnWhe
 	}
 	
 	private void showSelectedResult() {
-		Toast.makeText(getActivity(), "µ±Ç°Ñ¡ÖÐ:"+CommonUtil.mCurrentProviceName+","+CommonUtil.mCurrentCityName+","
+		Toast.makeText(getActivity(), "ï¿½ï¿½Ç°Ñ¡ï¿½ï¿½:"+CommonUtil.mCurrentProviceName+","+CommonUtil.mCurrentCityName+","
 				+CommonUtil.mCurrentDistrictName+","+CommonUtil.mCurrentZipCode, Toast.LENGTH_SHORT).show();
 	}
 	

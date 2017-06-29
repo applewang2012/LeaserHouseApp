@@ -14,7 +14,7 @@ import landlord.guardts.house.model.ProvinceModel;
 public class XmlParserHandler extends DefaultHandler {
 
 	/**
-	 * ´æ´¢ËùÓÐµÄ½âÎö¶ÔÏó
+	 * ï¿½æ´¢ï¿½ï¿½ï¿½ÐµÄ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private List<ProvinceModel> provinceList = new ArrayList<ProvinceModel>();
 	 	  
@@ -28,7 +28,7 @@ public class XmlParserHandler extends DefaultHandler {
 
 	@Override
 	public void startDocument() throws SAXException {
-		// µ±¶Áµ½µÚÒ»¸ö¿ªÊ¼±êÇ©µÄÊ±ºò£¬»á´¥·¢Õâ¸ö·½·¨
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ç©ï¿½ï¿½Ê±ï¿½ò£¬»á´¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 
 	ProvinceModel provinceModel = new ProvinceModel();
@@ -38,7 +38,7 @@ public class XmlParserHandler extends DefaultHandler {
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
-		// µ±Óöµ½¿ªÊ¼±ê¼ÇµÄÊ±ºò£¬µ÷ÓÃÕâ¸ö·½·¨
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Çµï¿½Ê±ï¿½ò£¬µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (qName.equals("province")) {
 			provinceModel = new ProvinceModel();
 			provinceModel.setName(attributes.getValue(0));
@@ -57,7 +57,7 @@ public class XmlParserHandler extends DefaultHandler {
 	@Override
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
-		// Óöµ½½áÊø±ê¼ÇµÄÊ±ºò£¬»áµ÷ÓÃÕâ¸ö·½·¨
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Ê±ï¿½ò£¬»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (qName.equals("district")) {
 			cityModel.getDistrictList().add(districtModel);
         } else if (qName.equals("city")) {
