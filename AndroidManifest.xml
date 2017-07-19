@@ -57,6 +57,32 @@
            android:name=".AddRentAttributeActivity" />
        <activity android:name="landlord.guardts.house.DownloadAppActivity"></activity>
        <activity android:name="landlord.guardts.house.SurfaceViewTestActivity"></activity>
+       
+        <activity
+            android:name=".ImageGridActivity" android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".TestPicActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PhotoActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".AlbumActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ImageFile" >
+        </activity>
+        <activity
+            android:name=".ShowAllPhoto" >
+        </activity>
+        <activity
+            android:name=".GalleryActivity">
+        </activity>
+        
        <provider
             android:name="landlord.guardts.house.download.DownloadProvider"
             android:authorities="landlord.guardts.house.download" />

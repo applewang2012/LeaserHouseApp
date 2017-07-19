@@ -35,5 +35,7 @@
 	<dimen name="font_size_s">12sp</dimen>
 	<!--download -->
     <dimen name="checkmark_area">40dip</dimen>
+    
+	<dimen name="ui_10_dip">10dip</dimen> 
 
 </resources>

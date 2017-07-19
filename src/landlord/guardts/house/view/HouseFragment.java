@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import landlord.guardts.house.AddHouseInfoActivity;
 import landlord.guardts.house.AddRentAttributeActivity;
 import landlord.guardts.house.R;
 import landlord.guardts.house.model.DataStatusInterface;
@@ -98,6 +99,24 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 		mlistView.setOnItemClickListener(this);
 		mlistView.setOnItemLongClickListener(this);
 	}
+	
+//	private void showAlertDialog(final TextView text, final String tag, final String[] items) {  
+//		  AlertDialog.Builder builder =new AlertDialog.Builder(AddHouseInfoActivity.this);
+//		  
+//		  builder.setItems(items, new DialogInterface.OnClickListener() {
+//			
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				mSelectorInfo.get(tag).setHouseSelectValue(items[which]);
+//				if (mSelectorInfo.get(tag).getHouseAllId() != null && mSelectorInfo.get(tag).getHouseAllId().length > 0){
+//					mSelectorInfo.get(tag).setHouseSelectId(mSelectorInfo.get(tag).getHouseAllId()[which]);
+//				}
+//				
+//				text.setText(mSelectorInfo.get(tag).getHouseOrginText() +"   "+items[which]);
+//			}
+//		});
+//		builder.show();
+//}
 	
 	private void initData(){
 		getHouseInfo();
@@ -270,7 +289,7 @@ public class HouseFragment extends Fragment implements DataStatusInterface, OnIt
 	
 	@Override
 	public void onStatusSuccess(String action, String templateInfo) {
-		Log.e("housefragment", "on status success  action  "+action+"  info  "+templateInfo);
+		Log.v("mingguo", "on status success  action  "+action+"  info  "+templateInfo);
 		if (action.equals(mGetHouseInfoAction)){
 			Message msgMessage = mHandler.obtainMessage();
 			msgMessage.what = 100;

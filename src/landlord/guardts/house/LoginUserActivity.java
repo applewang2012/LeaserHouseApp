@@ -110,6 +110,7 @@ public class LoginUserActivity extends BaseActivity{
 		SoapObject rpc = new SoapObject(CommonUtil.NAMESPACE, CommonUtil.getSoapName(mLoginAction));
 		rpc.addProperty("username", mUserName);
 		rpc.addProperty("password", mPassword);
+		rpc.addProperty("userType", "1");
 		mPresenter.readyPresentServiceParams(getApplicationContext(), url, mLoginAction, rpc);
 		mPresenter.startPresentServiceTask();
 	}

@@ -45,6 +45,7 @@ public class AddRentAttributeActivity extends BaseActivity{
 	private HoursePresenter mPresenter;
 	private String mAddRentAction = "http://tempuri.org/AddRentRecord";
 	private String mQueryStatusAction = "http://tempuri.org/IsOrderConfirmed";
+	private String mSendMessageAction = "http://tempuri.org/SendMessageToPlice";
 	private String mIdentifyUrl = "https://nid.sdtt.com.cn/AppRegSvr/thirdsysauthsvr/houseorder";
 	private String mAppIDString = "0000004";
 	private String mRandNum = null;
@@ -303,6 +304,15 @@ public class AddRentAttributeActivity extends BaseActivity{
 		mPresenter.startPresentServiceTask();
 	}
 	
+	private void sendMessageToFinish(){
+		String url = "http://qxw2332340157.my3w.com/Services.asmx?op=SendMessageToPlice";
+		SoapObject rpc = new SoapObject(CommonUtil.NAMESPACE, CommonUtil.getSoapName(mSendMessageAction));
+		rpc.addProperty("rentNo", mHouseId.getText().toString());
+		rpc.addProperty("sign", "0");
+		mPresenter.readyPresentServiceParams(getApplicationContext(), url, mSendMessageAction, rpc);
+		mPresenter.startPresentServiceTask();
+	}
+	
 	
 	
 	private void startHttpService(){
@@ -369,6 +379,8 @@ public class AddRentAttributeActivity extends BaseActivity{
 				getIndentifyInfo((String)msg.obj);
 			}else if (msg.what == 102){
 				parseQueryStatus((String)msg.obj);
+			}else if (msg.what == 103){
+				finish();
 			}
 		}
 		
@@ -380,10 +392,9 @@ public class AddRentAttributeActivity extends BaseActivity{
 				JSONObject object = new JSONObject(value);
 				if (object != null){
 					String ret = object.optString("ret");
-					
 					if (ret != null && ret.equals("0")){
 						Toast.makeText(getApplicationContext(), "租户已确认完成 ", Toast.LENGTH_SHORT).show();
-						finish();
+						sendMessageToFinish();
 					}else{
 						queryIdentifyStatus(mOrderId);
 					}
@@ -518,6 +529,11 @@ public class AddRentAttributeActivity extends BaseActivity{
 				msg.what = 102;
 				msg.obj = templateInfo;
 				mHandler.sendMessageDelayed(msg, 3000);
+			}else if (action.equals(mSendMessageAction)){
+				Message msg = new Message();
+				msg.what = 103;
+				msg.obj = templateInfo;
+				mHandler.sendMessage(msg);
 			}
 		}
 		
