@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
     android:background="@color/albumback"
     >
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/headview"
         android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:background="@drawable/plugin_camera_title_bar"
+        android:layout_height="60dp"
+        android:background="@color/blue"
         android:gravity="center_vertical"
         >
-        <Button
-            android:textSize="14sp"
-            android:textColor="#fff"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/gallery_back"
-            android:text="@string/album"
-            android:background="@drawable/plugin_camera_title_btn_back"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="70dp"
+            android:text="预览"
+             android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@color/blue"
+            android:textSize="20dp" />
+        
+        <TextView
+            android:id="@+id/id_show_seleted_num"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="16dp"
+            android:textColor="#ffffff"
             />
-        <Button
-            android:textSize="14sp"
-            android:textColor="#fff"
-            android:id="@+id/gallery_del"
-            android:background="@drawable/plugin_camera_del_state"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            />
-    </RelativeLayout>
+            
+    </FrameLayout>
     
-     <RelativeLayout
+<!--      <RelativeLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
+        android:visibility="invisible"
         android:background="@drawable/plugin_camera_bottom_bar" >
  		
         <Button
@@ -53,19 +53,32 @@
             android:text="@string/finish"
             android:background="@drawable/plugin_camera_ok_btn_state"
             />
-
-    </RelativeLayout>
+    </RelativeLayout> -->
     
     <landlord.guardts.house.upload.ViewPagerFixed
       android:id="@+id/gallery01" 
       android:layout_width="fill_parent" 
       android:layout_height="wrap_content"
-      android:layout_above="@id/bottom_layout"
-      android:layout_below="@id/headview"
+      android:layout_marginTop="60dp"
       android:layout_centerHorizontal="true"
       android:background="@color/plugin_camera_black"
       android:unselectedAlpha="1">
    	</landlord.guardts.house.upload.ViewPagerFixed>
+   	
+    <Button 
+                 android:id="@+id/gallery_del"
+                 android:layout_width="match_parent"
+		         android:layout_height="45dp"
+		         android:layout_marginLeft="30dp"
+		         android:layout_marginRight="30dp"
+		         android:layout_gravity="bottom"
+		         android:layout_marginBottom="20dp"
+		         android:text="删		除"
+		         android:textColor="#ffffff"
+		         android:textSize="18dp"
+		         android:gravity="center"
+		         android:background="@drawable/button_background"
+                 />
    
-</RelativeLayout>
+</FrameLayout>
   

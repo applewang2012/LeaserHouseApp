@@ -1,54 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    android:orientation="vertical" >
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/black" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="写动态"
+     >
+	<LinearLayout
+	    android:layout_width="match_parent"
+   		android:layout_height="wrap_content" 
+   		android:orientation="vertical"
+	    >
+	    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="选择图片"
             android:textColor="#ffffff"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/activity_selectimg_send"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="8dp"
             android:gravity="center"
-            android:text="发送"
-            android:textColor="@drawable/text_while"
+            android:background="@color/blue"
             android:textSize="20sp" />
-    </RelativeLayout>
+		    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="100dp"
+	        android:layout_margin="8dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginTop="15dp"
+	        android:gravity="center_vertical"
+	        android:textSize="15dp"
+	        android:text="请上传图片增加房屋曝光率，包含客厅、厨房、卫生间、卧室、储藏室共六张照片"       
+	        android:background="@null" />
+	
+	    <GridView 
+	        android:id="@+id/noScrollgridview"
+	        android:layout_width="match_parent"
+	        android:layout_height="500dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:horizontalSpacing="5dp"    
+	        android:verticalSpacing="10dp"    
+	        android:numColumns="3"
+	        android:scrollbars="none"
+	        >
+    	</GridView>
+	</LinearLayout>
 
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:layout_margin="8dp"
-        android:gravity="left|top"
-        android:hint="说点什么吧..."       
-        android:background="@null" >
-    </EditText>
+    
+    
+   <Button 
+        android:id="@+id/id_upload_selected_image"
+        android:layout_width="match_parent"
+		android:layout_height="45dp"
+		android:layout_marginLeft="30dp"
+		android:layout_marginRight="30dp"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="20dp"
+		android:text="上		传"
+		android:textColor="#ffffff"
+		android:textSize="18dp"
+		android:gravity="center"
+		android:background="@drawable/button_background"
+      />
+   
+    <include
+        android:id="@+id/id_data_loading"
+        layout="@layout/layout_loading_dialog"
+       />
 
-    <GridView 
-        android:id="@+id/noScrollgridview"
-        android:layout_width="290dp"
-        android:layout_height="350dp"
-        android:layout_marginLeft="5dp"
-        android:horizontalSpacing="3dp"        
-        android:numColumns="4"
-        android:scrollbars="none"
-        android:verticalSpacing="5dp" >
-    </GridView>
-
-</LinearLayout>
+</FrameLayout>

@@ -10,6 +10,8 @@ import java.util.HashMap;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
@@ -81,7 +83,7 @@ public class BitmapCache extends Activity {
 					
 				}
 				if (thumb == null) {
-					thumb = SelectPhotoActivity.bimap;
+					thumb = SelectPhotoActivity.mAddImageBitmap;
 				}
 				Log.e(TAG, "-------thumb------"+thumb);
 				put(path, thumb);
@@ -108,6 +110,7 @@ public class BitmapCache extends Activity {
 		in.close();
 		int i = 0;
 		Bitmap bitmap = null;
+		int angle = readPictureDegree(path);
 		while (true) {
 			if ((options.outWidth >> i <= 256)
 					&& (options.outHeight >> i <= 256)) {
@@ -115,13 +118,58 @@ public class BitmapCache extends Activity {
 						new FileInputStream(new File(path)));
 				options.inSampleSize = (int) Math.pow(2.0D, i);
 				options.inJustDecodeBounds = false;
-				bitmap = BitmapFactory.decodeStream(in, null, options);
+				bitmap = rotaingImageView(angle, BitmapFactory.decodeStream(in, null, options));
 				break;
 			}
 			i += 1;
 		}
 		return bitmap;
 	}
+	
+	/**
+	 * 读取图片属性：旋转的角度
+	 * @param path 图片绝对路径
+	 * @return degree旋转的角度
+	 */
+	
+	public static int readPictureDegree(String path) {
+        int degree  = 0;
+        try {
+                ExifInterface exifInterface = new ExifInterface(path);
+                int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+                switch (orientation) {
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                        degree = 90;
+                        break;
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                        degree = 180;
+                        break;
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                        degree = 270;
+                        break;
+                }
+        } catch (IOException e) {
+                e.printStackTrace();
+        }
+        return degree;
+    }
+	
+	/*
+	    * 旋转图片 
+	    * @param angle 
+	    * @param bitmap 
+	    * @return Bitmap 
+	    */  
+	   public static Bitmap rotaingImageView(int angle , Bitmap bitmap) {  
+	       //旋转图片 动作   
+	       Matrix matrix = new Matrix();;  
+	       matrix.postRotate(angle);  
+	       System.out.println("angle2=" + angle);  
+	       // 创建新的图片   
+	       Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0,  
+	               bitmap.getWidth(), bitmap.getHeight(), matrix, true);  
+	       return resizedBitmap;  
+	   }
 
 	public interface ImageCallback {
 		public void imageLoad(ImageView imageView, Bitmap bitmap,

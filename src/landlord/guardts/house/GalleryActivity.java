@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,9 +34,9 @@ import landlord.guardts.house.upload.ViewPagerFixed;
 public class GalleryActivity extends Activity {
 	private Intent intent;
     // 返回按钮
-    private Button back_bt;
+   // private Button back_bt;
 	// 发送按钮
-	private Button send_bt;
+	//private Button send_bt;
 	//删除按钮
 	private Button del_bt;
 	//顶部显示预览图片位置的textview
@@ -56,22 +57,25 @@ public class GalleryActivity extends Activity {
 	private Context mContext;
 
 	RelativeLayout photo_relativeLayout;
+	private TextView mSelectedViewNum;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.plugin_camera_gallery);// 切屏到主界面
 		PublicWay.activityList.add(this);
 		mContext = this;
-		back_bt = (Button) findViewById(R.id.gallery_back);
-		send_bt = (Button) findViewById(R.id.send_button);
+		//back_bt = (Button) findViewById(R.id.gallery_back);
+		//send_bt = (Button) findViewById(R.id.send_button);
 		del_bt = (Button)findViewById(R.id.gallery_del);
-		back_bt.setOnClickListener(new BackListener());
-		send_bt.setOnClickListener(new GallerySendListener());
+		//back_bt.setOnClickListener(new BackListener());
+		//send_bt.setOnClickListener(new GallerySendListener());
 		del_bt.setOnClickListener(new DelListener());
 		intent = getIntent();
 		Bundle bundle = intent.getExtras();
 		position = Integer.parseInt(intent.getStringExtra("position"));
-		isShowOkBt();
+		mSelectedViewNum = (TextView) findViewById(R.id.id_show_seleted_num);
+		mSelectedViewNum.setText((location+1) + "/"+Bimp.tempSelectBitmap.size());
+		//isShowOkBt();
 		// 为发送按钮设置文字
 		pager = (ViewPagerFixed) findViewById(R.id.gallery01);
 		pager.setOnPageChangeListener(pageChangeListener);
@@ -90,10 +94,11 @@ public class GalleryActivity extends Activity {
 
 		public void onPageSelected(int arg0) {
 			location = arg0;
+			mSelectedViewNum.setText((location+1) + "/"+Bimp.tempSelectBitmap.size());
 		}
 
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
-
+			
 		}
 
 		public void onPageScrollStateChanged(int arg0) {
@@ -113,13 +118,13 @@ public class GalleryActivity extends Activity {
 	}
 	
 	// 返回按钮添加的监听器
-	private class BackListener implements OnClickListener {
-
-		public void onClick(View v) {
-			intent.setClass(GalleryActivity.this, ImageFile.class);
-			startActivity(intent);
-		}
-	}
+//	private class BackListener implements OnClickListener {
+//
+//		public void onClick(View v) {
+//			intent.setClass(GalleryActivity.this, ImageFile.class);
+//			startActivity(intent);
+//		}
+//	}
 	
 	// 删除按钮添加的监听器
 	private class DelListener implements OnClickListener {
@@ -128,7 +133,7 @@ public class GalleryActivity extends Activity {
 			if (listViews.size() == 1) {
 				Bimp.tempSelectBitmap.clear();
 				Bimp.max = 0;
-				send_bt.setText(R.string.finish+"(" + Bimp.tempSelectBitmap.size() + "/"+PublicWay.num+")");
+				//send_bt.setText(R.string.finish+"(" + Bimp.tempSelectBitmap.size() + "/"+PublicWay.num+")");
 				Intent intent = new Intent("data.broadcast.action");  
                 sendBroadcast(intent);  
 				finish();
@@ -138,54 +143,54 @@ public class GalleryActivity extends Activity {
 				pager.removeAllViews();
 				listViews.remove(location);
 				adapter.setListViews(listViews);
-				send_bt.setText(R.string.finish +"(" + Bimp.tempSelectBitmap.size() + "/"+PublicWay.num+")");
+				//send_bt.setText(R.string.finish +"(" + Bimp.tempSelectBitmap.size() + "/"+PublicWay.num+")");
 				adapter.notifyDataSetChanged();
+				mSelectedViewNum.setText((location+1) + "/"+Bimp.tempSelectBitmap.size());
 			}
 		}
 	}
 
 	// 完成按钮的监听
-	private class GallerySendListener implements OnClickListener {
+	private class GalleryClickListener implements OnClickListener {
+
+		@Override
 		public void onClick(View v) {
 			finish();
-			intent.setClass(mContext,SelectPhotoActivity.class);
-			startActivity(intent);
-		}
-
-	}
-
-	public void isShowOkBt() {
-		if (Bimp.tempSelectBitmap.size() > 0) {
-			send_bt.setText(R.string.finish +"(" + Bimp.tempSelectBitmap.size() + "/"+PublicWay.num+")");
-			send_bt.setPressed(true);
-			send_bt.setClickable(true);
-			send_bt.setTextColor(Color.WHITE);
-		} else {
-			send_bt.setPressed(false);
-			send_bt.setClickable(false);
-			send_bt.setTextColor(Color.parseColor("#E1E0DE"));
 		}
 	}
+
+//	public void isShowOkBt() {
+//		if (Bimp.tempSelectBitmap.size() > 0) {
+//			send_bt.setText(R.string.finish +"(" + Bimp.tempSelectBitmap.size() + "/"+PublicWay.num+")");
+//			send_bt.setPressed(true);
+//			send_bt.setClickable(true);
+//			send_bt.setTextColor(Color.WHITE);
+//		} else {
+//			send_bt.setPressed(false);
+//			send_bt.setClickable(false);
+//			send_bt.setTextColor(Color.parseColor("#E1E0DE"));
+//		}
+//	}
 
 	/**
 	 * 监听返回按钮
 	 */
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
+//	@Override
+//	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			if(position==1){
-				this.finish();
-				intent.setClass(GalleryActivity.this, AlbumActivity.class);
-				startActivity(intent);
-			}else if(position==2){
-				this.finish();
-				intent.setClass(GalleryActivity.this, ShowAllPhoto.class);
-				startActivity(intent);
-			}
-		}
-		return true;
-	}
+//		if (keyCode == KeyEvent.KEYCODE_BACK) {
+//			if(position==1){
+//				this.finish();
+//				intent.setClass(GalleryActivity.this, AlbumActivity.class);
+//				startActivity(intent);
+//			}else if(position==2){
+//				this.finish();
+//				intent.setClass(GalleryActivity.this, ShowAllPhoto.class);
+//				startActivity(intent);
+//			}
+//		}
+//		return true;
+//	}
 	
 	
 	class MyPageAdapter extends PagerAdapter {
@@ -221,7 +226,7 @@ public class GalleryActivity extends Activity {
 		public Object instantiateItem(View arg0, int arg1) {
 			try {
 				((ViewPagerFixed) arg0).addView(listViews.get(arg1 % size), 0);
-
+				
 			} catch (Exception e) {
 			}
 			return listViews.get(arg1 % size);

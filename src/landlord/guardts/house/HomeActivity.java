@@ -52,6 +52,7 @@ public class HomeActivity extends BaseActivity {
 		
 		mUserName = getIntent().getStringExtra("user_name");
 		mPassword = getIntent().getStringExtra("user_password");
+		CommonUtil.mLoginUser = mUserName;
 		initView();
 		checkVersionUpdate();
 	}

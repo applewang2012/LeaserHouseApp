@@ -134,7 +134,7 @@ public class DataModel {
 				String resultString = valueObject.getProperty(0).toString();
 				mPresenter.notifyDataRequestSuccess(mSoapAction, resultString);
 			} catch (Exception e) {
-				mPresenter.notifyDataRequestError(mSoapAction, "error from exception ");
+				mPresenter.notifyDataRequestError(mSoapAction, "error from exception "+e);
 			}
 			
 			return null;

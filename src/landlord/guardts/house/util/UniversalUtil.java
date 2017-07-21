@@ -1,8 +1,10 @@
 package landlord.guardts.house.util;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Hashtable;
 
 import com.google.zxing.BarcodeFormat;
@@ -27,6 +29,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Environment;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -221,5 +224,35 @@ public static int playPosition=-1;
         context.startActivity(intent);    
     }  
    
+    
+    public static String bitmapToBase64(Bitmap bitmap) {  
+    	  
+        String result = null;  
+        ByteArrayOutputStream baos = null;  
+        try {  
+            if (bitmap != null) {  
+                baos = new ByteArrayOutputStream();  
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);  
+      
+                baos.flush();  
+                baos.close();  
+      
+                byte[] bitmapBytes = baos.toByteArray();  
+                result = Base64.encodeToString(bitmapBytes, Base64.DEFAULT);  
+            }  
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        } finally {  
+            try {  
+                if (baos != null) {  
+                    baos.flush();  
+                    baos.close();  
+                }  
+            } catch (IOException e) {  
+                e.printStackTrace();  
+            }  
+        }  
+        return result;  
+    }  
 
 }

@@ -62,6 +62,8 @@ public class CommonUtil {
 	 * ����ʡ������XML����
 	 */
 	
+	public static String mLoginUser;
+	
 	public static String getSoapName(String action){
 		if (action == null || action.equals("")){
 			return null;

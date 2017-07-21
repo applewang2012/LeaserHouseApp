@@ -11,6 +11,7 @@ public class ImageItem implements Serializable {
 	public String thumbnailPath;
 	public String imagePath;
 	private Bitmap bitmap;
+	//private String imageName;
 	public boolean isSelected = false;
 	
 	public String getImageId() {
@@ -36,6 +37,19 @@ public class ImageItem implements Serializable {
 	}
 	public void setSelected(boolean isSelected) {
 		this.isSelected = isSelected;
+	}
+	public String getImageName() {
+		if (imagePath != null){
+			String splitName = imagePath.substring(imagePath.lastIndexOf("/")+1);
+			if (splitName != null && splitName.length() > 0){
+				return splitName;
+			}
+		}
+		return System.currentTimeMillis()+"default.jpg";
+	}
+	public void setImageName(String name) {
+		
+		//this.imageName = name;
 	}
 	public Bitmap getBitmap() {		
 		if(bitmap == null){

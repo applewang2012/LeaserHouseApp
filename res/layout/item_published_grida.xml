@@ -6,10 +6,10 @@
 
     <ImageView
         android:id="@+id/item_grida_image"
-        android:layout_width="68dp"
-        android:layout_height="68dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher" >
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_addpic_unfocused" >
     </ImageView>
 
 </LinearLayout>

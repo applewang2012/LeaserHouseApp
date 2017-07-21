@@ -7,6 +7,7 @@ import org.ksoap2.serialization.SoapObject;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -799,6 +800,9 @@ public class AddHouseInfoActivity extends BaseActivity{
 				if (value != null && value.equals("true")){
 					Log.e("mingguo", "add rent info success ");
 					Toast.makeText(getApplicationContext(), "添加租房信息成功", Toast.LENGTH_SHORT).show();
+					Intent photoIntent = new Intent(AddHouseInfoActivity.this, SelectPhotoActivity.class);
+					photoIntent.putExtra("rentNo", mRentNo);
+					startActivity(photoIntent);
 					finish();
 				}else{
 					Toast.makeText(getApplicationContext(), "添加租房信息失败", Toast.LENGTH_SHORT).show();
@@ -817,7 +821,6 @@ public class AddHouseInfoActivity extends BaseActivity{
 	};
 	
 	private void showLoadingView(){
-		
 		if (mLoadingView != null) {
 			mLoadingView.setVisibility(View.VISIBLE);
         	ImageView imageView = (ImageView) mLoadingView.findViewById(R.id.id_progressbar_img);
