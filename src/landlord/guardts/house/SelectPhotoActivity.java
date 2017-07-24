@@ -397,6 +397,7 @@ public class SelectPhotoActivity extends BaseActivity {
 								startAddRentHouseImage(mUploadNum);
 							}else if (mUploadNum > Bimp.tempSelectBitmap.size()){
 								Toast.makeText(getApplicationContext(), "上传图片完成！", Toast.LENGTH_SHORT).show();
+								finish();
 							}
 						}else{
 							Toast.makeText(getApplicationContext(), "上传图片失败！", Toast.LENGTH_SHORT).show();

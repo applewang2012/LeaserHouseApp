@@ -12,6 +12,14 @@
         android:background="@color/blue"
         android:gravity="center_vertical"
         >
+        <Button  
+            android:id="@+id/gallery_back"
+            android:layout_width="45dp"
+        	android:layout_height="35dp"
+        	android:layout_gravity="center_vertical"
+        	android:layout_marginLeft="10dp"
+        	android:background="@drawable/pre_"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

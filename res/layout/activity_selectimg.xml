@@ -4,44 +4,49 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
      >
-	<LinearLayout
-	    android:layout_width="match_parent"
-   		android:layout_height="wrap_content" 
-   		android:orientation="vertical"
-	    >
-	    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="选择图片"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:background="@color/blue"
-            android:textSize="20sp" />
+    <ScrollView 
+        android:layout_width="match_parent"
+   		android:layout_height="match_parent"
+   		android:layout_marginBottom="65dp"
+        >
+		<LinearLayout
+		    android:layout_width="match_parent"
+	   		android:layout_height="wrap_content" 
+	   		android:orientation="vertical"
+		    >
 		    <TextView
-	        android:layout_width="fill_parent"
-	        android:layout_height="100dp"
-	        android:layout_margin="8dp"
-	        android:layout_marginLeft="10dp"
-	        android:layout_marginTop="15dp"
-	        android:gravity="center_vertical"
-	        android:textSize="15dp"
-	        android:text="请上传图片增加房屋曝光率，包含客厅、厨房、卫生间、卧室、储藏室共六张照片"       
-	        android:background="@null" />
-	
-	    <GridView 
-	        android:id="@+id/noScrollgridview"
-	        android:layout_width="match_parent"
-	        android:layout_height="500dp"
-	        android:layout_marginLeft="10dp"
-	        android:layout_marginRight="10dp"
-	        android:horizontalSpacing="5dp"    
-	        android:verticalSpacing="10dp"    
-	        android:numColumns="3"
-	        android:scrollbars="none"
-	        >
-    	</GridView>
-	</LinearLayout>
-
+	            android:layout_width="match_parent"
+	            android:layout_height="60dp"
+	            android:text="选择图片"
+	            android:textColor="#ffffff"
+	            android:gravity="center"
+	            android:background="@color/blue"
+	            android:textSize="20sp" />
+			    <TextView
+		        android:layout_width="fill_parent"
+		        android:layout_height="100dp"
+		        android:layout_margin="8dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginTop="10dp"
+		        android:gravity="center_vertical"
+		        android:textSize="18dp"
+		        android:text="请上传图片增加房屋曝光率，包含客厅、厨房、卫生间、卧室、储藏室共六张照片"       
+		        android:background="@null" />
+		
+		    <GridView 
+		        android:id="@+id/noScrollgridview"
+		        android:layout_width="match_parent"
+		        android:layout_height="400dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"
+		        android:horizontalSpacing="5dp"    
+		        android:verticalSpacing="10dp"    
+		        android:numColumns="2"
+		        android:scrollbars="none"
+		        >
+	    	</GridView>
+		</LinearLayout>
+	</ScrollView>
     
     
    <Button 

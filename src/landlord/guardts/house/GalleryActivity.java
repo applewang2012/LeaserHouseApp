@@ -7,12 +7,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -88,6 +85,16 @@ public class GalleryActivity extends Activity {
 		pager.setPageMargin((int)getResources().getDimensionPixelOffset(R.dimen.ui_10_dip));
 		int id = intent.getIntExtra("ID", 0);
 		pager.setCurrentItem(id);
+		
+		Button back = (Button)findViewById(R.id.gallery_back);
+		back.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 	
 	private OnPageChangeListener pageChangeListener = new OnPageChangeListener() {
